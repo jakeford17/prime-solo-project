@@ -1,11 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
 }
 
+h1, h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+
 .alert {
-    background-color: #ff4545;
+    color: #ff4545;
     margin: 50px;
+    font-size: 2em;
+}
+
+.createPosition {
+    font-family: 'Permanent Marker', cursive;
+    display: block;
+    font-size: .75em;
+    margin: auto;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+}
+
+.createPosition:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.content {
+    width: 85%;
+    margin: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.25em;
 }
 
 form {
@@ -23,17 +53,19 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: black;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
   min-width: 100px;
   outline:0;
   cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: white;
+  color: black;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
