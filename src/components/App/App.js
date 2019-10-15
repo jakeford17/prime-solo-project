@@ -14,8 +14,9 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import Home from '../Home/Home';
-// import UserPage from '../UserPage/UserPage';
 import Forwards from '../Forwards/Forwards';
+
+import CreateForward from '../CreateForward/CreateForward';
 
 import './App.css';
 
@@ -55,6 +56,11 @@ class App extends Component {
                 exact
                 path="/forwards"
                 component={Forwards}
+              />
+              <ProtectedRoute
+                exact
+                path="/createforward"
+                component={CreateForward}
               />
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>Please log in to view this page (404).</h1>} />

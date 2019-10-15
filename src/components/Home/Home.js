@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 class Home extends Component {
   forwardClick = () => {
     console.log("FORWARD CLICKED");
-    // this.props.history.push(`/edit/${this.props.match.params.id}`);
+    this.props.history.push(`/createforward`);
   }
 
   defenseClick = () => {
@@ -30,9 +30,10 @@ class Home extends Component {
           <p>
             Welcome to Hockey Prospect DB, a site used to help track NHL prospects for next June's NHL Entry Draft!
           </p>
-          <button className="createPosition" onClick={this.forwardClick}>CREATE FORWARD</button>
-          <button className="createPosition" onClick={this.defenseClick}>CREATE DEFENSEMAN</button>
-          <button className="createPosition" onClick={this.goalieClick}>CREATE GOALTENDER</button>
+            <h2 className="createHeader">Create a New Player</h2>
+            <button className="createPosition" onClick={this.forwardClick}>CREATE FORWARD</button>
+            <button className="createPosition" onClick={this.defenseClick}>CREATE DEFENSEMAN</button>
+            <button className="createPosition" onClick={this.goalieClick}>CREATE GOALTENDER</button>
         </div>
       </div>
     );

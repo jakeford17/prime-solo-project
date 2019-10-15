@@ -15,6 +15,17 @@ h1, h2 {
     font-size: 2em;
 }
 
+.createHeader {
+    margin: auto;
+    text-align: center;
+}
+
+.createSpan {
+    margin: auto;
+    text-align: center;
+}
+
+
 .createPosition {
     font-family: 'Permanent Marker', cursive;
     display: block;
