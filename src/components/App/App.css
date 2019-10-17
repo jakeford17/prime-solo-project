@@ -2,91 +2,103 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 body {
-    margin: 0px;
+    margin: 0px !important;
 }
 
 h1, h2 {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker', cursive !important;
 }
 
 .alert {
-    color: #ff4545;
-    margin: 50px;
-    font-size: 2em;
+    color: #ff4545 !important;
+    margin: 50px !important;
+    font-size: 2em !important;
+}
+
+.categoryComment {
+    width: 550px;
+    padding: 0 0 200px 0;
 }
 
 .createHeader {
-    margin: auto;
-    text-align: center;
+    margin: auto !important;
+    text-align: center !important;
+    text-decoration: underline;
 }
 
 .createSpan {
-    margin: auto;
-    text-align: center;
+    margin: auto !important;
+    text-align: center !important;
 }
 
 
 .createPosition {
-    font-family: 'Permanent Marker', cursive;
-    display: block;
-    font-size: .75em;
-    margin: auto;
-    margin-top: 10px;
-    background-color: black;
-    color: white;
+    font-family: 'Permanent Marker', cursive !important;
+    display: block !important;
+    font-size: 1.1em !important;
+    margin: auto !important;
+    margin-top: 10px !important;
+    padding: 10px !important;
+    background-color: black !important;
+    color: white !important;
 }
 
 .createPosition:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
+    cursor: pointer !important;
+    background-color: white !important;
+    color: black !important;
 }
 
 .content {
-    width: 85%;
-    margin: auto;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.25em;
+    width: 85% !important;
+    margin: auto !important;
+    font-family: 'Source Sans Pro', sans-serif !important;
+    font-size: 1.25em !important;
 }
 
 form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
+    background-color: #dbd5d5 !important;
+    width: 30% !important;
+    height: 250px !important;
+    margin: 20px auto !important;
+    padding: 25px !important;
+    border-radius: 2px !important;
 }
 
 input {
-    margin: 5px;
-    margin-bottom: 10px;
+    margin: 5px !important;
+    margin-bottom: 10px !important;
 }
 
 .log-in, .log-out, .register {
-  background-color: black;
-  border-radius: 4px;
-  color: #f8f8f8;
-  min-height: 50px;
-  min-width: 100px;
-  outline:0;
-  cursor: pointer;
-  font-family: 'Permanent Marker', cursive;
+  background-color: black !important;
+  border-radius: 4px !important;
+  color: #f8f8f8 !important;
+  min-height: 50px !important;
+  min-width: 100px !important;
+  outline:0 !important;
+  cursor: pointer !important;
+  font-family: 'Permanent Marker', cursive !important;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: white;
-  color: black;
+  background-color: white !important;
+  color: black !important;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
-    background:none;
-    color:inherit;
-    border:none;
-    padding:0;
-    font: inherit;
-    outline:0;
-    border-bottom:1px solid #444; 
-    cursor: pointer;
+    background:none !important;
+    color:inherit !important;
+    border:none !important;
+    padding:0 !important;
+    font: inherit !important;
+    outline:0 !important;
+    border-bottom:1px solid #444 !important; 
+    cursor: pointer !important;
 }
+
+.radioInput{
+    display: inline !important;
+    margin-left: 15px !important;
+  }
