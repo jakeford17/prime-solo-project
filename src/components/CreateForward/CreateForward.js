@@ -7,11 +7,14 @@ class CreateForward extends Component {
     state = {
         fname: '',
         lname: '',
+        position: '',
+        shoots: '',
         team: '',
         league: '',
         dob: '',
         height: '',
         weight: '',
+        epurl: '',
         playerType: '',
         round: '',
         skating: '',
@@ -42,6 +45,18 @@ class CreateForward extends Component {
         })
     }
 
+    positionChange = (event) => {
+        this.setState({
+            position: event.target.value,
+        })
+    }
+
+    shotChange = (event) => {
+        this.setState({
+            shoots: event.target.value,
+        })
+    }
+    
     teamChange = (event) => {
         this.setState({
             team: event.target.value,
@@ -81,6 +96,12 @@ class CreateForward extends Component {
     roundChange = (event) => {
         this.setState({
             round: event.target.value,
+        })
+    }
+
+    epChange = (event) => {
+        this.setState({
+            epurl: event.target.value,
         })
     }
 
@@ -168,9 +189,14 @@ class CreateForward extends Component {
         })
     }
 
+    backClick = (event) => {
+        this.props.history.push(`/home`)
+    }
+
     submitClick = (event) => {
-        // this.props.dispatch({type: 'SET_COMMENTS', payload: this.state.})
-        console.log('From comments: ', this.state)
+        event.preventDefault();
+        console.log('From comments: ', this.state);
+        this.props.dispatch({ type: 'POST_NEW_FORWARD', payload: this.state });
     }
 
     render() {
@@ -193,6 +219,8 @@ class CreateForward extends Component {
                         <h2>Basic Information</h2><br />
                         <label>First Name:</label><br /><input onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input onChange={this.lnameChange} value={this.state.lname} /><br />
+                        <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
+                        <label>Shoots:</label><br /><input onChange={this.shotChange} value={this.state.shoots} /><br />
                         <label>Team:</label><br /><input onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input onChange={this.leagueChange} value={this.state.league} /><br />
                         <label>DOB (MM/DD/YY):</label><br /><input onChange={this.dobChange} value={this.state.dob} /><br />
@@ -211,7 +239,8 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="round" value="5" onChange={(event) => this.roundChange(event)} checked={this.state.round === "5"} /> 5
                             <input className="radioInput" type="radio" name="round" value="6" onChange={(event) => this.roundChange(event)} checked={this.state.round === "6"} /> 6
                             <input className="radioInput" type="radio" name="round" value="7" onChange={(event) => this.roundChange(event)} checked={this.state.round === "7"} /> 7
-                            <input className="radioInput" type="radio" name="round" value="Undrafted" onChange={(event) => this.roundChange(event)} checked={this.state.round === "Undrafted"} /> Undrafted
+                            <input className="radioInput" type="radio" name="round" value="Undrafted" onChange={(event) => this.roundChange(event)} checked={this.state.round === "Undrafted"} /> Undrafted<br/><br/>
+                            <label>EliteProspects Page:</label><br /><input onChange={this.epChange} value={this.state.epurl} /><br />
                     </TabPanel>
                     <TabPanel>
                         <h2>Skating</h2>
@@ -342,9 +371,11 @@ class CreateForward extends Component {
                     </TabPanel>
                     <TabPanel>
                         <h2>Submit</h2>
+                        <p>Be sure to review your information before submitting your evaluation. If you need to change something after submitting, go to the player's profile page and click "Edit".</p>
                         <button className="createPosition" onClick={this.submitClick}>SUBMIT EVALUATION</button>
                     </TabPanel>
                 </Tabs>
+                <button className="createPosition" onClick={this.backClick}>BACK TO HOME</button>
             </div>
         );
     }
