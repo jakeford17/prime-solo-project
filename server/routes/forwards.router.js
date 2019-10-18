@@ -22,4 +22,14 @@ router.post('/', (req, res, next) => {
         .catch(() => res.sendStatus(500));
 });
 
+router.get('/', (req, res) => {
+    const queryText = `SELECT * FROM "forward";`;
+    pool.query(queryText)
+      .then((result) => { res.send(result.rows); })
+      .catch((err) => {
+        console.log('Error completing SELECT forwards query', err);
+        res.sendStatus(500);
+      });
+  });
+
 module.exports = router;

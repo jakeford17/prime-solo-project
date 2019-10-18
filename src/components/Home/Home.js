@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 
 class Home extends Component {
   forwardClick = () => {
-    console.log("FORWARD CLICKED");
     this.props.history.push(`/createforward`);
   }
 

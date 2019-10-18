@@ -1,17 +1,81 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+class Forwards extends Component {
+  componentDidMount() {
+    this.getForwards()
+  }
 
-const Forwards = () => (
-  <div>
-    <h1>Forwards</h1>
-    <p>
-      Forwards will go here...
-    </p>
-  </div>
-);
+  getForwards() {
+    this.props.dispatch({ type: 'GET_FORWARDS' });
+  }
 
-export default Forwards;
+  render() {
+    let forwards = this.props.forwards.map((forwardItem) => {
+      return (
+        <tr key={forwardItem.id}>
+          <td>
+            {forwardItem.round}
+          </td>
+          <td>
+            {forwardItem.fname}
+          </td>
+          <td>
+            {forwardItem.lname}
+          </td>
+          <td>
+            {forwardItem.team}
+          </td>
+          <td>
+            {forwardItem.league}
+          </td>
+          <td>
+            {forwardItem.height}
+          </td>
+          <td>
+            {forwardItem.weight}
+          </td>
+          <td>
+            <a href={forwardItem.epurl} target="_blank" rel="noopener noreferrer">EliteProspects</a>
+          </td>
+          <td>
+            Evaluation
+          </td>
+        </tr>
+      )
+    })
+    return (
+      <>
+        <h1>FORWARDS</h1>
+        {/* <pre>{JSON.stringify(this.props.forwards)}</pre> */}
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Round</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Team</th>
+                <th>League</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th> </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              {forwards}
+            </tbody>
+          </table>
+        </div>
+
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  forwards: state.forwards
+})
+
+export default connect(mapStateToProps)(Forwards);

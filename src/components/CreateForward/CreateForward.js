@@ -197,6 +197,7 @@ class CreateForward extends Component {
         event.preventDefault();
         console.log('From comments: ', this.state);
         this.props.dispatch({ type: 'POST_NEW_FORWARD', payload: this.state });
+        this.props.history.push(`/home`);
     }
 
     render() {
