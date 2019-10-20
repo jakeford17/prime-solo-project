@@ -15,6 +15,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import Home from '../Home/Home';
 import Forwards from '../Forwards/Forwards';
+import ForwardProfile from '../ForwardProfile/ForwardProfile';
+import ForwardEdit from '../ForwardEdit/ForwardEdit';
 
 import CreateForward from '../CreateForward/CreateForward';
 
@@ -59,6 +61,14 @@ class App extends Component {
                 exact
                 path="/createforward"
                 component={CreateForward}
+              />
+              <ProtectedRoute
+                path='/forwardprofile/:id'
+                render={({ match }) => <ForwardProfile match={match} />}
+              />
+              <ProtectedRoute 
+              path='/forwardedit/:id' 
+              render={({ match }) => <ForwardEdit match={match} />} 
               />
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>Please log in to view this page (404).</h1>} />

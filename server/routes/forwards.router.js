@@ -25,11 +25,21 @@ router.post('/', (req, res, next) => {
 router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "forward";`;
     pool.query(queryText)
-      .then((result) => { res.send(result.rows); })
-      .catch((err) => {
-        console.log('Error completing SELECT forwards query', err);
-        res.sendStatus(500);
-      });
-  });
+        .then((result) => { res.send(result.rows); })
+        .catch((err) => {
+            console.log('Error completing SELECT forwards query', err);
+            res.sendStatus(500);
+        });
+});
+
+router.get('/forwardprofile/:id', (req, res) => {
+    const queryText = `SELECT * FROM "forward" WHERE id=$1`;
+    pool.query(queryText, [req.params.id])
+        .then((result) => { res.send(result.rows); })
+        .catch((err) => {
+            console.log('Error in SELECT MOVIE query', err);
+            res.sendStatus(500);
+        });
+});
 
 module.exports = router;

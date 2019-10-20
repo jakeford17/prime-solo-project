@@ -5,7 +5,7 @@ body {
     margin: 0px !important;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Permanent Marker', cursive !important;
 }
 
@@ -41,12 +41,14 @@ h1, h2 {
     padding: 10px !important;
     background-color: black !important;
     color: white !important;
+    text-decoration: none;
 }
 
 .createPosition:hover {
     cursor: pointer !important;
     background-color: white !important;
     color: black !important;
+    text-decoration: none;
 }
 
 .content {
@@ -96,6 +98,21 @@ input {
     outline:0 !important;
     border-bottom:1px solid #444 !important; 
     cursor: pointer !important;
+}
+
+.profileButton{
+        font-family: 'Permanent Marker', cursive !important;
+        display: block !important;
+        font-size: 1.1em !important;
+        margin: auto !important;
+        background-color: white !important;
+        color: black !important;
+}
+
+.profileButton:hover {
+    cursor: pointer !important;
+    background-color: black !important;
+    color: white !important;
 }
 
 .radioInput{

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createHashHistory } from 'history';
 
 class Forwards extends Component {
   componentDidMount() {
@@ -10,12 +11,17 @@ class Forwards extends Component {
     this.props.dispatch({ type: 'GET_FORWARDS' });
   }
 
+  forwardProfile = (forward) => {
+    console.log("Evaluation Clicked")
+    this.props.history.push(`/forwardprofile/${forward.id}`)
+  }
+
   render() {
     let forwards = this.props.forwards.map((forwardItem) => {
       return (
         <tr key={forwardItem.id}>
           <td>
-            {forwardItem.round}
+            <button className="profileButton" onClick={() => this.forwardProfile(forwardItem)}>&#x1f3d2;</button>
           </td>
           <td>
             {forwardItem.fname}
@@ -36,10 +42,7 @@ class Forwards extends Component {
             {forwardItem.weight}
           </td>
           <td>
-            <a href={forwardItem.epurl} target="_blank" rel="noopener noreferrer">EliteProspects</a>
-          </td>
-          <td>
-            Evaluation
+            {forwardItem.round}
           </td>
         </tr>
       )
@@ -47,20 +50,18 @@ class Forwards extends Component {
     return (
       <>
         <h1>FORWARDS</h1>
-        {/* <pre>{JSON.stringify(this.props.forwards)}</pre> */}
         <div>
           <table>
             <thead>
               <tr>
-                <th>Round</th>
+                <th>Profile</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Team</th>
                 <th>League</th>
                 <th>Height</th>
                 <th>Weight</th>
-                <th> </th>
-                <th> </th>
+                <th>Exp. Round</th>
               </tr>
             </thead>
             <tbody>
@@ -78,4 +79,5 @@ const mapStateToProps = state => ({
   forwards: state.forwards
 })
 
+export const history = createHashHistory()
 export default connect(mapStateToProps)(Forwards);
