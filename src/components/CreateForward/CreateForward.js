@@ -189,7 +189,7 @@ class CreateForward extends Component {
         })
     }
 
-    backClick = (event) => {
+    backClick = () => {
         this.props.history.push(`/home`)
     }
 
