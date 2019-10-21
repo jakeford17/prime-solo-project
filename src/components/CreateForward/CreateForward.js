@@ -259,7 +259,14 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="skating" value="10" onChange={(event) => this.skatingChange(event)} checked={this.state.skating === "10"} /> 10<br /><br />
                             <label>Skating Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.skatingComChange} value={this.state.skatingComments} />
-                            <h3></h3>
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Acceleration (first few strides, ability to pull away from/catch other players)</li>
+                                    <li>Speed (when in full stride)</li>
+                                    <li>Balance (strong on his skates)</li>
+                                    <li>Mobility (agility, footwork, pivots, stops, and starts)</li>
+                                    <li>Backward skating (overall backward skating ability)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -278,6 +285,19 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="puckskills" value="10" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "10"}/> 10<br /><br />
                             <label>Puck Skills Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.puckSkillsComChange} value={this.state.puckSkillsComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
+                                    <li>Shot strength (does he have a heavy shot?)</li>
+                                    <li>Shot release (ability to shoot without getting set, off the stickhandle)</li>
+                                    <li>Shot repertoire (quality of wrist, slap, snap, and backhand shots)</li>
+                                    <li>Stickhandling ability (can handle the puck at top speed; controls the puck in tight spaces and along boards)</li>
+                                    <li>Puck protection (ability to adjust body position and balance to keep/acquire the puck)</li>
+                                    <li>Faceoffs (gets possession of the puck and is used in all zones)</li>
+                                    <li>Giving a pass (delivers puck for easy handling; leads his man)</li>
+                                    <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
+                                    <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -296,6 +316,14 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="competitive" value="10" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "10"}/> 10<br /><br />
                             <label>Competitiveness Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.compComChange} value={this.state.compComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
+                                    <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
+                                    <li>Attitude (level of maturity: well developed or "has a way to go")</li>
+                                    <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
+                                    <li>Forechecking (puck pursuit; fights through checks)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -314,6 +342,14 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="physical" value="10" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "10"}/> 10<br /><br />
                             <label>Physical Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.physicalComChange} value={this.state.physicalComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
+                                    <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
+                                    <li>Conditioning (overall physical conditioning, build, strength, stamina, and durability; rarely misses games) </li>
+                                    <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
+                                    <li>Fighting (willing to fight and is capable)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -332,6 +368,15 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="iq" value="10" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "10"}/> 10<br /><br />
                             <label>Hockey Sense Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.iqComChange} value={this.state.hockeyIQComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
+                                    <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
+                                    <li>Discipline (avoids bad penalties, accepts bad calls, not drawn into retaliation)</li>
+                                    <li>Decision making (ability to sort out options and make the best choices)</li>
+                                    <li>Play under pressure (good decision making when being pressured/forechecked)</li>
+                                    <li>Versatility (ability to play various positions, roles, special teams)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -350,6 +395,13 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="defense" value="10" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "10"}/> 10<br /><br />
                             <label>Defensive Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.defenseComChange} value={this.state.defenseComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Defensive anticipation (reads the play, gap control)</li>
+                                    <li>Positioning (angles opponents, active away from the puck)</li>
+                                    <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
+                                    <li>Defensive reliability (is he used in critical situations?)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -368,6 +420,12 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="psychological" value="10" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "10"}/> 10<br /><br />
                             <label>Psychological Factors Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.psychComChange} value={this.state.psychComments} />
+                            <h3>What to Watch:</h3>
+                                <ul>
+                                    <li>Leadership (takes charge, displays on-ice leadership)</li>
+                                    <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
+                                    <li>Confidence (displays noticeable confidence in on-ice activity)</li>
+                                </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>

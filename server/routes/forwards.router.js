@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "forward";`;
+    const queryText = `SELECT * FROM "forward" ORDER BY "round";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
