@@ -42,4 +42,18 @@ router.get('/forwardprofile/:id', (req, res) => {
         });
 });
 
+router.put('/', (req, res) => {
+    const updatedF = req.body;
+    const queryText = `UPDATE "forward" SET "fname" = $1, "lname" = $2, "dob" = $3, "position" = $4, "shoots" = $5, "team" = $6, "league" = $7, "height" = $8, "weight" = $9, "epurl" = $10, "skating" = $11, "skating_comments" = $12, "puck_skills" = $13, "puck_skills_comments" = $14, "competitiveness" = $15, "comp_comments" = $16, "physicality" = $17, "phys_comments" = $18, "iq" = $19, "iq_comments" = $20, "defense" = $21, "def_comments" = $22, "psych" = $23, "psych_comments" = $24, "player_type" = $25, "round" = $26 WHERE "id" = $27;`;
+    const queryValues = [
+        updatedF.fname, updatedF.lname, updatedF.dob, updatedF.position, updatedF.shoots, updatedF.team, updatedF.league, updatedF.height, updatedF.weight, updatedF.epurl, updatedF.skating, updatedF.skating_comments, updatedF.puck_skills, updatedF.puck_skills_comments, updatedF.competitiveness, updatedF.comp_comments, updatedF.physicality, updatedF.phys_comments, updatedF.iq, updatedF.iq_comments, updatedF.defense, updatedF.def_comments, updatedF.psych, updatedF.psych_comments, updatedF.player_type, updatedF.round, updatedF.id,
+    ];
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(200); })
+        .catch((err) => {
+            console.log('Error completing UPDATE MOVIE query', err);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;

@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import addForwardSaga from './addForwardSaga';
 import getForwardsSaga from './getForwardsSaga';
 import forwardProfileSaga from './forwardProfileSaga';
+import updateForwardSaga from './updateForwardSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,6 +21,7 @@ export default function* rootSaga() {
     userSaga(),
     addForwardSaga(),
     getForwardsSaga(),
-    forwardProfileSaga()
+    forwardProfileSaga(),
+    updateForwardSaga()
   ]);
 }

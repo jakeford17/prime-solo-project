@@ -29,7 +29,8 @@ class ForwardEdit extends Component {
         psych: '',
         psych_comments: '',
         player_type: '',
-        round: ''
+        round: '',
+        id: this.props.match.params.id
     }
 
 
@@ -73,8 +74,7 @@ class ForwardEdit extends Component {
     }
 
     handleSave = () => {
-        console.log("HANDLE SAVE")
-        this.props.dispatch({ type: 'FORWARD', payload: this.state });
+        this.props.dispatch({ type: 'UPDATE_FORWARD', payload: this.state });
         this.setState({
             state: this.state
         })
