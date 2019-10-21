@@ -56,7 +56,7 @@ class CreateForward extends Component {
             shoots: event.target.value,
         })
     }
-    
+
     teamChange = (event) => {
         this.setState({
             team: event.target.value,
@@ -190,7 +190,11 @@ class CreateForward extends Component {
     }
 
     backClick = () => {
-        this.props.history.push(`/home`)
+        if (window.confirm("Are you sure want to go back? You will lose all unsaved data.")) {
+            this.props.history.push(`/home`)
+        } else {
+            console.log("Canceled Back action");
+        }
     }
 
     submitClick = (event) => {
@@ -228,7 +232,7 @@ class CreateForward extends Component {
                         <label>Height:</label><br /><input onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight:</label><br /><input onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Player Type:</label><br />
-                            <input className="radioInput" type="radio" name="type" value="Skilled Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled Forward"} /> Skilled Forward
+                        <input className="radioInput" type="radio" name="type" value="Skilled Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled Forward"} /> Skilled Forward
                             <input className="radioInput" type="radio" name="type" value="Power Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Power Forward"} /> Power Forward
                             <input className="radioInput" type="radio" name="type" value="Role Player/Checker" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Role Player/Checker"} /> Role Player/Checker
                         <br /><br />
@@ -240,8 +244,8 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="round" value="5" onChange={(event) => this.roundChange(event)} checked={this.state.round === "5"} /> 5
                             <input className="radioInput" type="radio" name="round" value="6" onChange={(event) => this.roundChange(event)} checked={this.state.round === "6"} /> 6
                             <input className="radioInput" type="radio" name="round" value="7" onChange={(event) => this.roundChange(event)} checked={this.state.round === "7"} /> 7
-                            <input className="radioInput" type="radio" name="round" value="Undrafted" onChange={(event) => this.roundChange(event)} checked={this.state.round === "Undrafted"} /> Undrafted<br/><br/>
-                            <label>EliteProspects Page:</label><br /><input onChange={this.epChange} value={this.state.epurl} /><br />
+                            <input className="radioInput" type="radio" name="round" value="Undrafted" onChange={(event) => this.roundChange(event)} checked={this.state.round === "Undrafted"} /> Undrafted<br /><br />
+                        <label>EliteProspects Page:</label><br /><input onChange={this.epChange} value={this.state.epurl} /><br />
                     </TabPanel>
                     <TabPanel>
                         <h2>Skating</h2>
@@ -260,172 +264,172 @@ class CreateForward extends Component {
                             <label>Skating Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.skatingComChange} value={this.state.skatingComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Acceleration (first few strides, ability to pull away from/catch other players)</li>
-                                    <li>Speed (when in full stride)</li>
-                                    <li>Balance (strong on his skates)</li>
-                                    <li>Mobility (agility, footwork, pivots, stops, and starts)</li>
-                                    <li>Backward skating (overall backward skating ability)</li>
-                                </ul>
+                            <ul>
+                                <li>Acceleration (first few strides, ability to pull away from/catch other players)</li>
+                                <li>Speed (when in full stride)</li>
+                                <li>Balance (strong on his skates)</li>
+                                <li>Mobility (agility, footwork, pivots, stops, and starts)</li>
+                                <li>Backward skating (overall backward skating ability)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Puck Skills</h2>
                         <div>
                             <label>Puck Skills Grade:</label>
-                            <input className="radioInput" type="radio" name="puckskills" value="1" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "1"}/> 1
-                            <input className="radioInput" type="radio" name="puckskills" value="2" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "2"}/> 2
-                            <input className="radioInput" type="radio" name="puckskills" value="3" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "3"}/> 3
-                            <input className="radioInput" type="radio" name="puckskills" value="4" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "4"}/> 4
-                            <input className="radioInput" type="radio" name="puckskills" value="5" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "5"}/> 5
-                            <input className="radioInput" type="radio" name="puckskills" value="6" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "6"}/> 6
-                            <input className="radioInput" type="radio" name="puckskills" value="7" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "7"}/> 7
-                            <input className="radioInput" type="radio" name="puckskills" value="8" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "8"}/> 8
-                            <input className="radioInput" type="radio" name="puckskills" value="9" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "9"}/> 9
-                            <input className="radioInput" type="radio" name="puckskills" value="10" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="puckskills" value="1" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "1"} /> 1
+                            <input className="radioInput" type="radio" name="puckskills" value="2" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "2"} /> 2
+                            <input className="radioInput" type="radio" name="puckskills" value="3" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "3"} /> 3
+                            <input className="radioInput" type="radio" name="puckskills" value="4" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "4"} /> 4
+                            <input className="radioInput" type="radio" name="puckskills" value="5" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "5"} /> 5
+                            <input className="radioInput" type="radio" name="puckskills" value="6" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "6"} /> 6
+                            <input className="radioInput" type="radio" name="puckskills" value="7" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "7"} /> 7
+                            <input className="radioInput" type="radio" name="puckskills" value="8" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "8"} /> 8
+                            <input className="radioInput" type="radio" name="puckskills" value="9" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "9"} /> 9
+                            <input className="radioInput" type="radio" name="puckskills" value="10" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "10"} /> 10<br /><br />
                             <label>Puck Skills Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.puckSkillsComChange} value={this.state.puckSkillsComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
-                                    <li>Shot strength (does he have a heavy shot?)</li>
-                                    <li>Shot release (ability to shoot without getting set, off the stickhandle)</li>
-                                    <li>Shot repertoire (quality of wrist, slap, snap, and backhand shots)</li>
-                                    <li>Stickhandling ability (can handle the puck at top speed; controls the puck in tight spaces and along boards)</li>
-                                    <li>Puck protection (ability to adjust body position and balance to keep/acquire the puck)</li>
-                                    <li>Faceoffs (gets possession of the puck and is used in all zones)</li>
-                                    <li>Giving a pass (delivers puck for easy handling; leads his man)</li>
-                                    <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
-                                    <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
-                                </ul>
+                            <ul>
+                                <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
+                                <li>Shot strength (does he have a heavy shot?)</li>
+                                <li>Shot release (ability to shoot without getting set, off the stickhandle)</li>
+                                <li>Shot repertoire (quality of wrist, slap, snap, and backhand shots)</li>
+                                <li>Stickhandling ability (can handle the puck at top speed; controls the puck in tight spaces and along boards)</li>
+                                <li>Puck protection (ability to adjust body position and balance to keep/acquire the puck)</li>
+                                <li>Faceoffs (gets possession of the puck and is used in all zones)</li>
+                                <li>Giving a pass (delivers puck for easy handling; leads his man)</li>
+                                <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
+                                <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Competitiveness</h2>
                         <div>
                             <label>Competitiveness Grade:</label>
-                            <input className="radioInput" type="radio" name="competitive" value="1" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "1"}/> 1
-                            <input className="radioInput" type="radio" name="competitive" value="2" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "2"}/> 2
-                            <input className="radioInput" type="radio" name="competitive" value="3" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "3"}/> 3
-                            <input className="radioInput" type="radio" name="competitive" value="4" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "4"}/> 4
-                            <input className="radioInput" type="radio" name="competitive" value="5" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "5"}/> 5
-                            <input className="radioInput" type="radio" name="competitive" value="6" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "6"}/> 6
-                            <input className="radioInput" type="radio" name="competitive" value="7" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "7"}/> 7
-                            <input className="radioInput" type="radio" name="competitive" value="8" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "8"}/> 8
-                            <input className="radioInput" type="radio" name="competitive" value="9" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "9"}/> 9
-                            <input className="radioInput" type="radio" name="competitive" value="10" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="competitive" value="1" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "1"} /> 1
+                            <input className="radioInput" type="radio" name="competitive" value="2" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "2"} /> 2
+                            <input className="radioInput" type="radio" name="competitive" value="3" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "3"} /> 3
+                            <input className="radioInput" type="radio" name="competitive" value="4" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "4"} /> 4
+                            <input className="radioInput" type="radio" name="competitive" value="5" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "5"} /> 5
+                            <input className="radioInput" type="radio" name="competitive" value="6" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "6"} /> 6
+                            <input className="radioInput" type="radio" name="competitive" value="7" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "7"} /> 7
+                            <input className="radioInput" type="radio" name="competitive" value="8" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "8"} /> 8
+                            <input className="radioInput" type="radio" name="competitive" value="9" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "9"} /> 9
+                            <input className="radioInput" type="radio" name="competitive" value="10" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "10"} /> 10<br /><br />
                             <label>Competitiveness Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.compComChange} value={this.state.compComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
-                                    <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
-                                    <li>Attitude (level of maturity: well developed or "has a way to go")</li>
-                                    <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
-                                    <li>Forechecking (puck pursuit; fights through checks)</li>
-                                </ul>
+                            <ul>
+                                <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
+                                <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
+                                <li>Attitude (level of maturity: well developed or "has a way to go")</li>
+                                <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
+                                <li>Forechecking (puck pursuit; fights through checks)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Physical Play</h2>
                         <div>
                             <label>Physical Play Grade:</label>
-                            <input className="radioInput" type="radio" name="physical" value="1" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "1"}/> 1
-                            <input className="radioInput" type="radio" name="physical" value="2" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "2"}/> 2
-                            <input className="radioInput" type="radio" name="physical" value="3" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "3"}/> 3
-                            <input className="radioInput" type="radio" name="physical" value="4" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "4"}/> 4
-                            <input className="radioInput" type="radio" name="physical" value="5" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "5"}/> 5
-                            <input className="radioInput" type="radio" name="physical" value="6" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "6"}/> 6
-                            <input className="radioInput" type="radio" name="physical" value="7" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "7"}/> 7
-                            <input className="radioInput" type="radio" name="physical" value="8" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "8"}/> 8
-                            <input className="radioInput" type="radio" name="physical" value="9" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "9"}/> 9
-                            <input className="radioInput" type="radio" name="physical" value="10" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="physical" value="1" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "1"} /> 1
+                            <input className="radioInput" type="radio" name="physical" value="2" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "2"} /> 2
+                            <input className="radioInput" type="radio" name="physical" value="3" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "3"} /> 3
+                            <input className="radioInput" type="radio" name="physical" value="4" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "4"} /> 4
+                            <input className="radioInput" type="radio" name="physical" value="5" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "5"} /> 5
+                            <input className="radioInput" type="radio" name="physical" value="6" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "6"} /> 6
+                            <input className="radioInput" type="radio" name="physical" value="7" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "7"} /> 7
+                            <input className="radioInput" type="radio" name="physical" value="8" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "8"} /> 8
+                            <input className="radioInput" type="radio" name="physical" value="9" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "9"} /> 9
+                            <input className="radioInput" type="radio" name="physical" value="10" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "10"} /> 10<br /><br />
                             <label>Physical Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.physicalComChange} value={this.state.physicalComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
-                                    <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
-                                    <li>Conditioning (overall physical conditioning, build, strength, stamina, and durability; rarely misses games) </li>
-                                    <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
-                                    <li>Fighting (willing to fight and is capable)</li>
-                                </ul>
+                            <ul>
+                                <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
+                                <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
+                                <li>Conditioning (overall physical conditioning, build, strength, stamina, and durability; rarely misses games) </li>
+                                <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
+                                <li>Fighting (willing to fight and is capable)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Hockey Sense</h2>
                         <div>
                             <label>Hockey Sense Grade:</label>
-                            <input className="radioInput" type="radio" name="iq" value="1" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "1"}/> 1
-                            <input className="radioInput" type="radio" name="iq" value="2" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "2"}/> 2
-                            <input className="radioInput" type="radio" name="iq" value="3" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "3"}/> 3
-                            <input className="radioInput" type="radio" name="iq" value="4" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "4"}/> 4
-                            <input className="radioInput" type="radio" name="iq" value="5" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "5"}/> 5
-                            <input className="radioInput" type="radio" name="iq" value="6" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "6"}/> 6
-                            <input className="radioInput" type="radio" name="iq" value="7" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "7"}/> 7
-                            <input className="radioInput" type="radio" name="iq" value="8" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "8"}/> 8
-                            <input className="radioInput" type="radio" name="iq" value="9" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "9"}/> 9
-                            <input className="radioInput" type="radio" name="iq" value="10" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="iq" value="1" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "1"} /> 1
+                            <input className="radioInput" type="radio" name="iq" value="2" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "2"} /> 2
+                            <input className="radioInput" type="radio" name="iq" value="3" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "3"} /> 3
+                            <input className="radioInput" type="radio" name="iq" value="4" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "4"} /> 4
+                            <input className="radioInput" type="radio" name="iq" value="5" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "5"} /> 5
+                            <input className="radioInput" type="radio" name="iq" value="6" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "6"} /> 6
+                            <input className="radioInput" type="radio" name="iq" value="7" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "7"} /> 7
+                            <input className="radioInput" type="radio" name="iq" value="8" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "8"} /> 8
+                            <input className="radioInput" type="radio" name="iq" value="9" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "9"} /> 9
+                            <input className="radioInput" type="radio" name="iq" value="10" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "10"} /> 10<br /><br />
                             <label>Hockey Sense Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.iqComChange} value={this.state.hockeyIQComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
-                                    <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
-                                    <li>Discipline (avoids bad penalties, accepts bad calls, not drawn into retaliation)</li>
-                                    <li>Decision making (ability to sort out options and make the best choices)</li>
-                                    <li>Play under pressure (good decision making when being pressured/forechecked)</li>
-                                    <li>Versatility (ability to play various positions, roles, special teams)</li>
-                                </ul>
+                            <ul>
+                                <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
+                                <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
+                                <li>Discipline (avoids bad penalties, accepts bad calls, not drawn into retaliation)</li>
+                                <li>Decision making (ability to sort out options and make the best choices)</li>
+                                <li>Play under pressure (good decision making when being pressured/forechecked)</li>
+                                <li>Versatility (ability to play various positions, roles, special teams)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Defensive Play</h2>
                         <div>
                             <label>Defensive Play Grade:</label>
-                            <input className="radioInput" type="radio" name="defense" value="1" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "1"}/> 1
-                            <input className="radioInput" type="radio" name="defense" value="2" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "2"}/> 2
-                            <input className="radioInput" type="radio" name="defense" value="3" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "3"}/> 3
-                            <input className="radioInput" type="radio" name="defense" value="4" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "4"}/> 4
-                            <input className="radioInput" type="radio" name="defense" value="5" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "5"}/> 5
-                            <input className="radioInput" type="radio" name="defense" value="6" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "6"}/> 6
-                            <input className="radioInput" type="radio" name="defense" value="7" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "7"}/> 7
-                            <input className="radioInput" type="radio" name="defense" value="8" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "8"}/> 8
-                            <input className="radioInput" type="radio" name="defense" value="9" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "9"}/> 9
-                            <input className="radioInput" type="radio" name="defense" value="10" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="defense" value="1" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "1"} /> 1
+                            <input className="radioInput" type="radio" name="defense" value="2" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "2"} /> 2
+                            <input className="radioInput" type="radio" name="defense" value="3" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "3"} /> 3
+                            <input className="radioInput" type="radio" name="defense" value="4" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "4"} /> 4
+                            <input className="radioInput" type="radio" name="defense" value="5" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "5"} /> 5
+                            <input className="radioInput" type="radio" name="defense" value="6" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "6"} /> 6
+                            <input className="radioInput" type="radio" name="defense" value="7" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "7"} /> 7
+                            <input className="radioInput" type="radio" name="defense" value="8" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "8"} /> 8
+                            <input className="radioInput" type="radio" name="defense" value="9" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "9"} /> 9
+                            <input className="radioInput" type="radio" name="defense" value="10" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "10"} /> 10<br /><br />
                             <label>Defensive Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.defenseComChange} value={this.state.defenseComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Defensive anticipation (reads the play, gap control)</li>
-                                    <li>Positioning (angles opponents, active away from the puck)</li>
-                                    <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
-                                    <li>Defensive reliability (is he used in critical situations?)</li>
-                                </ul>
+                            <ul>
+                                <li>Defensive anticipation (reads the play, gap control)</li>
+                                <li>Positioning (angles opponents, active away from the puck)</li>
+                                <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
+                                <li>Defensive reliability (is he used in critical situations?)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <h2>Psychological Factors</h2>
                         <div>
                             <label>Psychological Factors Grade:</label>
-                            <input className="radioInput" type="radio" name="psychological" value="1" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "1"}/> 1
-                            <input className="radioInput" type="radio" name="psychological" value="2" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "2"}/> 2
-                            <input className="radioInput" type="radio" name="psychological" value="3" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "3"}/> 3
-                            <input className="radioInput" type="radio" name="psychological" value="4" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "4"}/> 4
-                            <input className="radioInput" type="radio" name="psychological" value="5" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "5"}/> 5
-                            <input className="radioInput" type="radio" name="psychological" value="6" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "6"}/> 6
-                            <input className="radioInput" type="radio" name="psychological" value="7" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "7"}/> 7
-                            <input className="radioInput" type="radio" name="psychological" value="8" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "8"}/> 8
-                            <input className="radioInput" type="radio" name="psychological" value="9" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "9"}/> 9
-                            <input className="radioInput" type="radio" name="psychological" value="10" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "10"}/> 10<br /><br />
+                            <input className="radioInput" type="radio" name="psychological" value="1" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "1"} /> 1
+                            <input className="radioInput" type="radio" name="psychological" value="2" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "2"} /> 2
+                            <input className="radioInput" type="radio" name="psychological" value="3" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "3"} /> 3
+                            <input className="radioInput" type="radio" name="psychological" value="4" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "4"} /> 4
+                            <input className="radioInput" type="radio" name="psychological" value="5" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "5"} /> 5
+                            <input className="radioInput" type="radio" name="psychological" value="6" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "6"} /> 6
+                            <input className="radioInput" type="radio" name="psychological" value="7" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "7"} /> 7
+                            <input className="radioInput" type="radio" name="psychological" value="8" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "8"} /> 8
+                            <input className="radioInput" type="radio" name="psychological" value="9" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "9"} /> 9
+                            <input className="radioInput" type="radio" name="psychological" value="10" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "10"} /> 10<br /><br />
                             <label>Psychological Factors Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.psychComChange} value={this.state.psychComments} />
                             <h3>What to Watch:</h3>
-                                <ul>
-                                    <li>Leadership (takes charge, displays on-ice leadership)</li>
-                                    <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
-                                    <li>Confidence (displays noticeable confidence in on-ice activity)</li>
-                                </ul>
+                            <ul>
+                                <li>Leadership (takes charge, displays on-ice leadership)</li>
+                                <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
+                                <li>Confidence (displays noticeable confidence in on-ice activity)</li>
+                            </ul>
                         </div>
                     </TabPanel>
                     <TabPanel>
@@ -434,7 +438,7 @@ class CreateForward extends Component {
                         <button className="createPosition" onClick={this.submitClick}>SUBMIT EVALUATION</button>
                     </TabPanel>
                 </Tabs>
-                <button className="createPosition" onClick={this.backClick}>BACK TO HOME</button>
+                <button className="createPosition" onClick={() => this.backClick()}>BACK TO HOME</button>
             </div>
         );
     }

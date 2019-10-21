@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
+import Moment from 'react-moment';
 
 // import {
 //     HashRouter as Router,
@@ -71,7 +72,7 @@ class ForwardProfile extends Component {
                                             <strong>DOB:</strong>
                                         </td>
                                         <td>
-                                            {oneForward.dob}
+                                            <Moment format="MM/DD/YY">{oneForward.dob}</Moment>
                                         </td>
                                     </tr>
                                     <tr>

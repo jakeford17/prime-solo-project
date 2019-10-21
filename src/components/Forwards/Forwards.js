@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
+import Moment from 'react-moment';
 
 class Forwards extends Component {
   componentDidMount() {
@@ -36,6 +37,9 @@ class Forwards extends Component {
             {forwardItem.league}
           </td>
           <td>
+            <Moment format="MM/DD/YY">{forwardItem.dob}</Moment>
+          </td>
+          <td>
             {forwardItem.height}
           </td>
           <td>
@@ -59,6 +63,7 @@ class Forwards extends Component {
                 <th>Last Name</th>
                 <th>Team</th>
                 <th>League</th>
+                <th>DOB</th>
                 <th>Height</th>
                 <th>Weight</th>
                 <th>Exp. Round</th>

@@ -70,7 +70,11 @@ class ForwardEdit extends Component {
     }
 
     handleBack = () => {
-        this.props.history.push(`/forwardprofile/${this.props.match.params.id}`)
+        if (window.confirm("Are you sure want go back? You will lose any changes made.")) {
+            this.props.history.push(`/forwardprofile/${this.props.match.params.id}`)
+        } else {
+            console.log("Back action canceled")
+        }
     }
 
     handleSave = () => {
@@ -78,7 +82,7 @@ class ForwardEdit extends Component {
         this.setState({
             state: this.state
         })
-        this.handleBack();
+        this.props.history.push(`/forwardprofile/${this.props.match.params.id}`)
     }
 
     handleChange = (event, propertyName) => {
@@ -98,15 +102,6 @@ class ForwardEdit extends Component {
             console.log("Reject", id);
         }
     }
-
-    // if (window.confirm("Are you sure want to delete this player? This action cannot be undone.")) {
-    // console.log("DELETE ITEM WITH ID: ", id);
-    // this.props.dispatch({ type: 'DELETE_FORWARD', payload: id })
-    // this.props.history.push(`/forwards`)
-    // } else {
-    //     console.log("Reject", id);
-    // }
-
 
     render() {
         return (
