@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    HashRouter as Router,
-    Link
-  } from 'react-router-dom';
+import { withRouter } from 'react-router'
+
+// import {
+//     HashRouter as Router,
+//     Link
+//   } from 'react-router-dom';
 
 class ForwardProfile extends Component {
     componentDidMount() {
@@ -18,15 +20,14 @@ class ForwardProfile extends Component {
         this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id })
     }
 
-    // editClick = () => {
-    //     console.log("Edit clicked");
-    //     this.props.history.push(`/forwardedit/${this.props.match.params.id}`);
-    // }
+    editClick = () => {
+        console.log("Edit clicked");
+        this.props.history.push(`/forwardedit/${this.props.match.params.id}`);
+    }
 
     render() {
         return (
             <div>
-                <Router>
                 {this.props.forwardProfile.map((oneForward) => {
                     return (
                         <div key={oneForward.id}>
@@ -252,8 +253,7 @@ class ForwardProfile extends Component {
                     )
                 })}
                 <br />
-                <Link to={`/forwardedit/${this.props.match.params.id}`}><button className="createPosition">Edit Profile</button></Link>
-                </Router>
+                <button className="createPosition" onClick={this.editClick}>Edit Profile</button>
             </div>
         )
     }
@@ -264,4 +264,4 @@ const mapStateToProps = state => ({
     forwardProfile: state.forwardProfile
 })
 
-export default connect(mapStateToProps)(ForwardProfile);
+export default withRouter(connect(mapStateToProps)(ForwardProfile));
