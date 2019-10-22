@@ -36,7 +36,7 @@ class ForwardProfile extends Component {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>Team:</strong>
                                         </td>
                                         <td>
@@ -44,7 +44,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>League:</strong>
                                         </td>
                                         <td>
@@ -52,7 +52,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>Position:</strong>
                                         </td>
                                         <td>
@@ -60,7 +60,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>Shoots:</strong>
                                         </td>
                                         <td>
@@ -68,7 +68,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>DOB:</strong>
                                         </td>
                                         <td>
@@ -76,7 +76,23 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td className="profiletd">
+                                            <strong>Height:</strong>
+                                        </td>
                                         <td>
+                                            {oneForward.height}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="profiletd">
+                                            <strong>Weight:</strong>
+                                        </td>
+                                        <td>
+                                            {oneForward.weight}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="profiletd">
                                             <strong>Player Type:</strong>
                                         </td>
                                         <td>
@@ -84,7 +100,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td className="profiletd">
                                             <strong>Expected Draft Round:</strong>
                                         </td>
                                         <td>
@@ -92,7 +108,7 @@ class ForwardProfile extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colSpan="2">
+                                        <td className="epRow" className="profiletd" colSpan="2">
                                             <a href={oneForward.epurl} target="_blank" rel="noopener noreferrer">EliteProspects Page</a>
                                         </td>
                                     </tr>
@@ -254,7 +270,7 @@ class ForwardProfile extends Component {
                     )
                 })}
                 <br />
-                <button className="createPosition" onClick={this.editClick}>Edit Profile</button>
+                <button className="mainButton" onClick={this.editClick}>Edit Profile</button>
             </div>
         )
     }

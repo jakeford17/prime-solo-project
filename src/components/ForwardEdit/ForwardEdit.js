@@ -166,9 +166,9 @@ class ForwardEdit extends Component {
                     )
                 })}
                 <br />
-                <button className="createPosition" onClick={this.handleBack}>Cancel</button>
-                <button className="createPosition" onClick={this.handleSave}>Save Changes</button>
-                <button className="createPosition" onClick={() => this.handleDelete(this.props.match.params.id)}>Delete Player</button>
+                <button className="mainButton" onClick={this.handleBack}>Cancel</button>
+                <button className="mainButton" onClick={this.handleSave}>Save Changes</button>
+                <button className="mainButton" onClick={() => this.handleDelete(this.props.match.params.id)}>Delete Player</button>
             </div>
         )
     }

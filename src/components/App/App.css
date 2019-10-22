@@ -2,17 +2,17 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
 body {
-    margin: 0px !important;
+    margin: 0px;
 }
 
 h1, h2, h3 {
-    font-family: 'Permanent Marker', cursive !important;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .alert {
-    color: #ff4545 !important;
-    margin: 50px !important;
-    font-size: 2em !important;
+    color: #ff4545;
+    margin: 50px;
+    font-size: 2em;
 }
 
 .categoryComment {
@@ -21,101 +21,154 @@ h1, h2, h3 {
 }
 
 .createHeader {
-    margin: auto !important;
-    text-align: center !important;
+    margin: auto;
+    text-align: center;
     text-decoration: underline;
 }
 
 .createSpan {
-    margin: auto !important;
-    text-align: center !important;
+    margin: auto;
+    text-align: center;
 }
 
+.epRow{
+    padding-top: 10px;
+}
 
-.createPosition {
-    font-family: 'Permanent Marker', cursive !important;
-    display: block !important;
-    font-size: 1.1em !important;
-    margin: auto !important;
-    margin-top: 10px !important;
-    padding: 10px !important;
-    background-color: black !important;
-    color: white !important;
+.mainButton {
+    font-family: 'Permanent Marker', cursive;
+    display: block;
+    font-size: 1.1em;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
     text-decoration: none;
+    width: 300px;
+    border-radius: 3.5%;
 }
 
-.createPosition:hover {
-    cursor: pointer !important;
-    background-color: white !important;
-    color: black !important;
+.mainButton:hover {
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    color: black;
     text-decoration: none;
 }
 
 .content {
-    width: 85% !important;
-    margin: auto !important;
-    font-family: 'Source Sans Pro', sans-serif !important;
-    font-size: 1.25em !important;
+    width: 85%;
+    margin: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.25em;
 }
 
 form {
-    background-color: #dbd5d5 !important;
-    width: 30% !important;
-    height: 250px !important;
-    margin: 20px auto !important;
-    padding: 25px !important;
-    border-radius: 2px !important;
+    background-color: #dbd5d5;
+    width: 30%;
+    height: 250px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
 }
 
 input {
-    margin: 5px !important;
-    margin-bottom: 10px !important;
-}
-
-.log-in, .log-out, .register {
-  background-color: black !important;
-  border-radius: 4px !important;
-  color: #f8f8f8 !important;
-  min-height: 50px !important;
-  min-width: 100px !important;
-  outline:0 !important;
-  cursor: pointer !important;
-  font-family: 'Permanent Marker', cursive !important;
-}
-
-.log-in:hover, .log-out:hover, .register:hover {
-  background-color: white !important;
-  color: black !important;
+    margin: 5px;
+    margin-bottom: 10px;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
-    background:none !important;
-    color:inherit !important;
-    border:none !important;
-    padding:0 !important;
-    font: inherit !important;
-    outline:0 !important;
-    border-bottom:1px solid #444 !important; 
-    cursor: pointer !important;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: 0;
+    border-bottom:1px solid #444; 
+    cursor: pointer;
+}
+
+.log-in, .log-out, .register {
+  background-color: black;
+  border-radius: 4px;
+  color: #f8f8f8;
+  min-height: 50px;
+  min-width: 100px;
+  outline: 0;
+  cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.log-in:hover, .log-out:hover, .register:hover {
+  background-color: white;
+  color: black;
+}
+
+.longInput{
+    width: 250px;
 }
 
 .profileButton{
-        font-family: 'Permanent Marker', cursive !important;
-        display: block !important;
-        font-size: 1.1em !important;
-        margin: auto !important;
-        background-color: white !important;
-        color: black !important;
+        border-radius: 25%;
+        display: block;
+        font-size: 1.1em;
+        margin: auto;
+        background-color: white;
+        color: black;
 }
 
 .profileButton:hover {
-    cursor: pointer !important;
-    background-color: black !important;
-    color: white !important;
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }
 
 .radioInput{
-    display: inline !important;
-    margin-left: 15px !important;
-  }
+    display: inline;
+    margin-left: 15px;
+}
+
+.superLongInput{
+    width: 450px;
+}
+
+.positionTableHeader{
+    background-color: lightgrey;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.profiletd{
+    min-width: 175px;
+}
+
+.positionRightTD{
+    border-right: 1px solid black;
+    padding-right: 30px;
+}
+
+.positionTableProfileHead{
+    text-align: center;
+}
+
+.positionTable{
+    border-collapse: collapse;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.positiontd{
+    min-width: 100px;
+    text-align: left;
+    padding-top: 3px;
+}
+
+.positiontr{
+    border-right: 1px solid black;
+}
+
+.positiontr:hover{
+    background-color: lightgray;
+}

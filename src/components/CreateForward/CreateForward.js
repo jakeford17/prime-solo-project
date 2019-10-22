@@ -222,12 +222,12 @@ class CreateForward extends Component {
                     </TabList>
                     <TabPanel>
                         <h2>Basic Information</h2><br />
-                        <label>First Name:</label><br /><input onChange={this.fnameChange} value={this.state.fname} /><br />
-                        <label>Last Name:</label><br /><input onChange={this.lnameChange} value={this.state.lname} /><br />
+                        <label>First Name:</label><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
+                        <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
                         <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
                         <label>Shoots:</label><br /><input onChange={this.shotChange} value={this.state.shoots} /><br />
-                        <label>Team:</label><br /><input onChange={this.teamChange} value={this.state.team} /><br />
-                        <label>League:</label><br /><input onChange={this.leagueChange} value={this.state.league} /><br />
+                        <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
+                        <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
                         <label>DOB (MM/DD/YY):</label><br /><input onChange={this.dobChange} value={this.state.dob} /><br />
                         <label>Height:</label><br /><input onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight:</label><br /><input onChange={this.weightChange} value={this.state.weight} /><br />
@@ -245,7 +245,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="round" value="6" onChange={(event) => this.roundChange(event)} checked={this.state.round === "6"} /> 6
                             <input className="radioInput" type="radio" name="round" value="7" onChange={(event) => this.roundChange(event)} checked={this.state.round === "7"} /> 7
                             <input className="radioInput" type="radio" name="round" value="Undrafted" onChange={(event) => this.roundChange(event)} checked={this.state.round === "Undrafted"} /> Undrafted<br /><br />
-                        <label>EliteProspects Page:</label><br /><input onChange={this.epChange} value={this.state.epurl} /><br />
+                        <label>EliteProspects Page URL:</label><br /><input className="superLongInput" onChange={this.epChange} value={this.state.epurl} /><br />
                     </TabPanel>
                     <TabPanel>
                         <h2>Skating</h2>
@@ -435,10 +435,10 @@ class CreateForward extends Component {
                     <TabPanel>
                         <h2>Submit</h2>
                         <p>Be sure to review your information before submitting your evaluation. If you need to change something after submitting, go to the player's profile page and click "Edit".</p>
-                        <button className="createPosition" onClick={this.submitClick}>SUBMIT EVALUATION</button>
+                        <button className="mainButton" onClick={this.submitClick}>SUBMIT EVALUATION</button>
                     </TabPanel>
                 </Tabs>
-                <button className="createPosition" onClick={() => this.backClick()}>BACK TO HOME</button>
+                <button className="mainButton" onClick={() => this.backClick()}>BACK TO HOME</button>
             </div>
         );
     }

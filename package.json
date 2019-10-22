@@ -37,6 +37,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@iconify/icons-mdi": "^1.0.24",
+    "@iconify/react": "^1.1.1",
     "nodemon": "^1.18.10"
   },
   "browserslist": [

@@ -30,9 +30,9 @@ class Home extends Component {
             Welcome to Hockey Prospect DB, a site used to help track NHL prospects for next June's NHL Entry Draft!
           </p>
             <h2 className="createHeader">Create a New Player</h2>
-            <button className="createPosition" onClick={this.forwardClick}>CREATE FORWARD</button>
-            <button className="createPosition" onClick={this.defenseClick}>CREATE DEFENSEMAN</button>
-            <button className="createPosition" onClick={this.goalieClick}>CREATE GOALTENDER</button>
+            <button className="mainButton" onClick={this.forwardClick}>CREATE FORWARD</button>
+            <button className="mainButton" onClick={this.defenseClick}>CREATE DEFENSEMAN</button>
+            <button className="mainButton" onClick={this.goalieClick}>CREATE GOALTENDER</button>
         </div>
       </div>
     );

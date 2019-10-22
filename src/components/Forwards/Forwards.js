@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
 import Moment from 'react-moment';
+import { Icon, InlineIcon } from '@iconify/react'; 
+import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 
 class Forwards extends Component {
   componentDidMount() {
@@ -20,32 +22,32 @@ class Forwards extends Component {
   render() {
     let forwards = this.props.forwards.map((forwardItem) => {
       return (
-        <tr key={forwardItem.id}>
-          <td>
-            <button className="profileButton" onClick={() => this.forwardProfile(forwardItem)}>&#x1f3d2;</button>
+        <tr className="positiontr" key={forwardItem.id}>
+          <td className="positiontd">
+            <button className="profileButton" onClick={() => this.forwardProfile(forwardItem)}><Icon icon={hockeyPuck} /></button>
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.fname}
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.lname}
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.team}
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.league}
           </td>
-          <td>
+          <td className="positiontd">
             <Moment format="MM/DD/YY">{forwardItem.dob}</Moment>
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.height}
           </td>
-          <td>
+          <td className="positiontd">
             {forwardItem.weight}
           </td>
-          <td>
+          <td className="positiontd" className="positionRightTD">
             {forwardItem.round}
           </td>
         </tr>
@@ -55,18 +57,18 @@ class Forwards extends Component {
       <>
         <h1>FORWARDS</h1>
         <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Profile</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Team</th>
-                <th>League</th>
-                <th>DOB</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>Exp. Round</th>
+          <table className="positionTable" class="sortable">
+            <thead className="positionTableHeader">
+              <tr className="positiontr">
+                <th className="positionTableProfileHead" scope="col">Profile</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Team</th>
+                <th scope="col">League</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Height</th>
+                <th scope="col">Weight</th>
+                <th colspan="9" scope="col" className="positionRightTD">Exp. Round</th>
               </tr>
             </thead>
             <tbody>
