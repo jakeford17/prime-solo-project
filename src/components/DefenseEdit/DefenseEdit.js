@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 
-class ForwardEdit extends Component {
+class DefenseEdit extends Component {
     state = {
         fname: '',
         lname: '',
         dob: '',
-        position: '',
         shoots: '',
         team: '',
         league: '',
@@ -35,13 +34,12 @@ class ForwardEdit extends Component {
 
 
     componentDidMount() {
-        this.props.forwardProfile.map((player) => {
+        this.props.defenseProfile.map((player) => {
             return (
                 this.setState({
                     fname: player.fname,
                     lname: player.lname,
                     dob: player.dob,
-                    position: player.position,
                     shoots: player.shoots,
                     team: player.team,
                     league: player.league,
@@ -71,18 +69,18 @@ class ForwardEdit extends Component {
 
     handleBack = () => {
         if (window.confirm("Are you sure want go back? You will lose any changes made.")) {
-            this.props.history.push(`/forwardprofile/${this.props.match.params.id}`)
+            this.props.history.push(`/defenseprofile/${this.props.match.params.id}`)
         } else {
             console.log("Back action canceled")
         }
     }
 
     handleSave = () => {
-        this.props.dispatch({ type: 'UPDATE_FORWARD', payload: this.state });
+        this.props.dispatch({ type: 'UPDATE_DEFENSE', payload: this.state });
         this.setState({
             state: this.state
         })
-        this.props.history.push(`/forwardprofile/${this.props.match.params.id}`)
+        this.props.history.push(`/defenseprofile/${this.props.match.params.id}`)
     }
 
     handleChange = (event, propertyName) => {
@@ -96,8 +94,8 @@ class ForwardEdit extends Component {
     handleDelete = (id) => {
         if (window.confirm("Are you sure want to delete this player? This action cannot be undone.")) {
             console.log("DELETE ITEM WITH ID: ", id);
-            this.props.dispatch({ type: 'DELETE_FORWARD', payload: id });
-            this.props.history.push(`/forwards`);
+            this.props.dispatch({ type: 'DELETE_DEFENSE', payload: id });
+            this.props.history.push(`/defense`);
         } else {
             console.log("Reject", id);
         }
@@ -106,31 +104,29 @@ class ForwardEdit extends Component {
     render() {
         return (
             <div>
-                {this.props.forwardProfile.map((oneForward) => {
+                {this.props.defenseProfile.map((oneDefense) => {
                     return (
-                        <div key={oneForward.id}>
-                            <a id="top"></a><h1>Edit Profile: {oneForward.fname} {oneForward.lname}</h1>
+                        <div key={oneDefense.id}>
+                            <a id="dtop"></a><h1>Edit Profile: {oneDefense.fname} {oneDefense.lname}</h1>
                             <h2>Page Navigation</h2>
                             <ul className="edit-nav">
-                                <li className="edit-nav-li"><a href="#top">Top of Page</a></li>
-                                <li className="edit-nav-li"><a href="#basic">Basic Info</a></li>
-                                <li className="edit-nav-li"><a href="#skating">Skating</a></li>
-                                <li className="edit-nav-li"><a href="#puckskills">Puck Skills</a></li>
-                                <li className="edit-nav-li"><a href="#competitiveness">Competitiveness</a></li>
-                                <li className="edit-nav-li"><a href="#physical">Physicality</a></li>
-                                <li className="edit-nav-li"><a href="#hockeyiq">Hockey Sense</a></li>
-                                <li className="edit-nav-li"><a href="#defensive">Defensive</a></li>
-                                <li className="edit-nav-li"><a href="#psych">Psychological Factors</a></li>
+                                <li className="edit-nav-li"><a href="#dtop">Top of Page</a></li>
+                                <li className="edit-nav-li"><a href="#dbasic">Basic Info</a></li>
+                                <li className="edit-nav-li"><a href="#dskating">Skating</a></li>
+                                <li className="edit-nav-li"><a href="#dpuckskills">Puck Skills</a></li>
+                                <li className="edit-nav-li"><a href="#dcompetitiveness">Competitiveness</a></li>
+                                <li className="edit-nav-li"><a href="#dphysical">Physicality</a></li>
+                                <li className="edit-nav-li"><a href="#dhockeyiq">Hockey Sense</a></li>
+                                <li className="edit-nav-li"><a href="#ddefensive">Defensive</a></li>
+                                <li className="edit-nav-li"><a href="#dpsych">Psychological Factors</a></li>
                             </ul>
-                            <a id="basic"></a><h2>Basic Info</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dbasic"></a><h2>Basic Info</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             First Name:<br />
                             <input className="longInput" label="First Name" variant="filled" value={this.state.fname} onChange={(event) => this.handleChange(event, "fname")} /><br /><br />
                             Last Name:<br />
                             <input className="longInput" label="Last Name" variant="filled" value={this.state.lname} onChange={(event) => this.handleChange(event, "lname")} /><br /><br />
                             DOB (MM/DD/YY):<br />
                             <input label="DOB" maxlength="8" variant="filled" value={this.state.dob} onChange={(event) => this.handleChange(event, "dob")} /><br /><br />
-                            Position(s):<br />
-                            <input label="Position" variant="filled" value={this.state.position} onChange={(event) => this.handleChange(event, "position")} /><br /><br />
                             Shoots:<br />
                             <input maxlength="1" className="shortInput" label="Shoots" variant="filled" value={this.state.shoots} onChange={(event) => this.handleChange(event, "shoots")} /><br /><br />
                             Team:<br />
@@ -147,7 +143,7 @@ class ForwardEdit extends Component {
                             <input maxlength="9" className="shortInput" label="Round" variant="filled" value={this.state.round} onChange={(event) => this.handleChange(event, "round")} /><br /><br />
                             EliteProspects URL:<br />
                             <input className="superLongInput" label="EliteProspects" variant="filled" value={this.state.epurl} onChange={(event) => this.handleChange(event, "epurl")} /><br /><br />
-                            <h2>Skating</h2>&nbsp;<a href="#top">Top of Page</a><a id="skating"></a><br/><br/>
+                            <h2>Skating</h2>&nbsp;<a href="#dtop">Top of Page</a><a id="dskating"></a><br/><br/>
                             Skating Rating:<br />
                             <input maxlength="2" className="shortInput" label="Skating" variant="filled" value={this.state.skating} onChange={(event) => this.handleChange(event, "skating")} /><br /><br />
                             Skating Comments:<br />
@@ -160,7 +156,7 @@ class ForwardEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="puckskills"></a><h2>Puck Skills</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dpuckskills"></a><h2>Puck Skills</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Puck Skills Rating:<br />
                             <input maxlength="2" className="shortInput" label="Puck Skills" variant="filled" value={this.state.puck_skills} onChange={(event) => this.handleChange(event, "puck_skills")} /><br /><br />
                             Puck Skills Comments:<br />
@@ -178,7 +174,7 @@ class ForwardEdit extends Component {
                                 <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
                                 <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
                             </ul>
-                            <a id="competitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dcompetitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Competitiveness Rating:<br />
                             <input maxlength="2" className="shortInput" label="Competitiveness" variant="filled" value={this.state.competitiveness} onChange={(event) => this.handleChange(event, "competitiveness")} /><br /><br />
                             Competitiveness Comments:<br />
@@ -191,7 +187,7 @@ class ForwardEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="physical"></a><h2>Physicality</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dphysical"></a><h2>Physicality</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Physicality Rating:<br />
                             <input maxlength="2" className="shortInput" label="Physicality" variant="filled" value={this.state.physicality} onChange={(event) => this.handleChange(event, "physicality")} /><br /><br />
                             Physicality Comments:<br />
@@ -204,7 +200,7 @@ class ForwardEdit extends Component {
                                 <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
                                 <li>Fighting (willing to fight and is capable)</li>
                             </ul>
-                            <a id="hockeyiq"></a><h2>Hockey Sense</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dhockeyiq"></a><h2>Hockey Sense</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Hockey Sense Rating:<br />
                             <input maxlength="2" className="shortInput" label="IQ" variant="filled" value={this.state.iq} onChange={(event) => this.handleChange(event, "iq")} /><br /><br />
                             Hockey Sense Comments:<br />
@@ -218,7 +214,7 @@ class ForwardEdit extends Component {
                                 <li>Play under pressure (good decision making when being pressured/forechecked)</li>
                                 <li>Versatility (ability to play various positions, roles, special teams)</li>
                             </ul>
-                            <a id="defensive"></a><h2>Defensive Play</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="ddefensive"></a><h2>Defensive Play</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Defensive Play Rating:<br />
                             <input maxlength="2" className="shortInput" label="Defense" variant="filled" value={this.state.defense} onChange={(event) => this.handleChange(event, "defense")} /><br /><br />
                             Defensive Play Comments:<br />
@@ -230,7 +226,7 @@ class ForwardEdit extends Component {
                                 <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
                                 <li>Defensive reliability (is he used in critical situations?)</li>
                             </ul>
-                            <a id="psych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#top">Top of Page</a><br/><br/>
+                            <a id="dpsych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
                             Psychological Factors Rating:<br />
                             <input maxlength="2" className="shortInput" label="Psychological" variant="filled" value={this.state.psych} onChange={(event) => this.handleChange(event, "psych")} /><br /><br />
                             Psychological Factors Comments:<br />
@@ -254,7 +250,7 @@ class ForwardEdit extends Component {
     }
 }
 const mapStateToProps = state => ({
-    forwardProfile: state.forwardProfile
+    defenseProfile: state.defenseProfile
 })
 
-export default withRouter(connect(mapStateToProps)(ForwardEdit));
+export default withRouter(connect(mapStateToProps)(DefenseEdit));

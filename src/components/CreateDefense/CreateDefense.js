@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 
-class CreateForward extends Component {
+class CreateDefense extends Component {
     state = {
         fname: '',
         lname: '',
-        position: '',
         shoots: '',
         team: '',
         league: '',
@@ -42,12 +41,6 @@ class CreateForward extends Component {
     lnameChange = (event) => {
         this.setState({
             lname: event.target.value,
-        })
-    }
-
-    positionChange = (event) => {
-        this.setState({
-            position: event.target.value,
         })
     }
 
@@ -200,14 +193,14 @@ class CreateForward extends Component {
     submitClick = (event) => {
         event.preventDefault();
         console.log('From comments: ', this.state);
-        this.props.dispatch({ type: 'POST_NEW_FORWARD', payload: this.state });
+        this.props.dispatch({ type: 'POST_NEW_DEFENSE', payload: this.state });
         this.props.history.push(`/home`);
     }
 
     render() {
         return (
             <div>
-                <h1>Create Forward</h1>
+                <h1>Create Defenseman</h1>
                 <Tabs>
                     <TabList>
                         <Tab>Basic Info</Tab>
@@ -224,7 +217,6 @@ class CreateForward extends Component {
                         <h2>Basic Information</h2><br />
                         <label>First Name:</label><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
-                        <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
                         <label>Shoots:</label><br /><input className="shortInput" maxlength="1" onChange={this.shotChange} value={this.state.shoots} /><br />
                         <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
@@ -232,9 +224,8 @@ class CreateForward extends Component {
                         <label>Height:</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight:</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Player Type:</label><br />
-                        <input className="radioInput" type="radio" name="type" value="Skilled Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled Forward"} /> Skilled Forward
-                            <input className="radioInput" type="radio" name="type" value="Power Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Power Forward"} /> Power Forward
-                            <input className="radioInput" type="radio" name="type" value="Role Player/Checker" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Role Player/Checker"} /> Role Player/Checker
+                            <input className="radioInput" type="radio" name="type" value="Skilled/Offensive Defenseman" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled/Offensive Defenseman"} /> Skilled/Offensive Defenseman
+                            <input className="radioInput" type="radio" name="type" value="Stay-at-Home/Defensive Defenseman" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Stay-at-Home/Defensive Defenseman"} /> Stay-at-Home/Defensive Defenseman
                         <br /><br />
                         <label>Expected Round:</label><br />
                         <input className="radioInput" type="radio" name="round" value="1" onChange={(event) => this.roundChange(event)} checked={this.state.round === "1"} /> 1
@@ -448,4 +439,4 @@ const mapStateToProps = (reduxStore) => ({
     reduxStore
 })
 
-export default connect(mapStateToProps)(CreateForward);
+export default connect(mapStateToProps)(CreateDefense);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "GET_FORWARDS" actions
+// worker Saga: will be fired on "DELETE_FORWARD" actions
 
 function* deleteForward (action) {
     try {

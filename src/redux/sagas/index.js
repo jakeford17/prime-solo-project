@@ -8,6 +8,12 @@ import forwardProfileSaga from './forwardProfileSaga';
 import updateForwardSaga from './updateForwardSaga';
 import deleteForwardSaga from './deleteForwardSaga';
 import deleteAllForwardsSaga from './deleteAllForwardsSaga';
+import addDefenseSaga from './addDefenseSaga';
+import getDefenseSaga from './getDefenseSaga';
+import defenseProfileSaga from './defenseProfileSaga';
+import updateDefenseSaga from './updateDefenseSaga';
+import deleteDefenseSaga from './deleteDefenseSaga';
+import deleteAllDefenseSaga from './deleteAllDefenseSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +32,12 @@ export default function* rootSaga() {
     forwardProfileSaga(),
     updateForwardSaga(),
     deleteForwardSaga(),
-    deleteAllForwardsSaga()
+    deleteAllForwardsSaga(),
+    addDefenseSaga(),
+    getDefenseSaga(),
+    defenseProfileSaga(),
+    updateDefenseSaga(),
+    deleteDefenseSaga(),
+    deleteAllDefenseSaga(),
   ]);
 }

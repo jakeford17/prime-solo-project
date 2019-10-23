@@ -11,8 +11,8 @@ function* getForwards(action) {
     }
 }
 
-function* addForwardSaga() {
+function* getForwardsSaga() {
     yield takeEvery('GET_FORWARDS', getForwards);
 }
 
-export default addForwardSaga;
+export default getForwardsSaga;

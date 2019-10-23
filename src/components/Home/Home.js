@@ -13,7 +13,7 @@ class Home extends Component {
 
   defenseClick = () => {
     console.log("DEFENSE CLICKED");
-    // this.props.history.push(`/edit/${this.props.match.params.id}`);
+    this.props.history.push(`/createdefense`);
   }
 
   goalieClick = () => {

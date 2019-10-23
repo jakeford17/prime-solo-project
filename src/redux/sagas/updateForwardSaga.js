@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { takeEvery } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "GET_FORWARDS" actions
+// worker Saga: will be fired on "UPDATE_FORWARD" actions
 
 function* updateForward (action) {
     try {
         yield axios.put('/api/forwards', action.payload);
     } catch (error) {
-        console.log('error while updating movie', error)
+        console.log('error while updating forward', error)
     }
 }
 
