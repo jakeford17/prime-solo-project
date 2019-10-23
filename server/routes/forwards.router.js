@@ -67,4 +67,15 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.delete('/delete/:id', (req, res) => {
+    const queryText = `DELETE FROM "forward" WHERE "id" > 0;`;
+    pool.query(queryText)
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;

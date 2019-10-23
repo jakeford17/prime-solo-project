@@ -32,7 +32,8 @@ h1, h2, h3 {
 }
 
 .epRow{
-    padding-top: 10px;
+    padding-top: 100px;
+    vertical-align: middle;
 }
 
 .mainButton {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createHashHistory } from 'history';
 import Moment from 'react-moment';
-import { Icon, InlineIcon } from '@iconify/react'; 
+import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 
 class Forwards extends Component {
@@ -17,6 +17,15 @@ class Forwards extends Component {
   forwardProfile = (forward) => {
     console.log("Evaluation Clicked")
     this.props.history.push(`/forwardprofile/${forward.id}`)
+  }
+
+  handleDeleteAll = (id) => {
+      if (window.confirm("Are you sure want to delete all forwards? This action cannot be undone.")) {
+          this.props.dispatch({ type: 'DELETE_ALL_FORWARDS', payload: id });
+          this.props.history.push(`/forwards`);
+      } else {
+          console.log("Delete rejected");
+      }
   }
 
   render() {
@@ -57,7 +66,7 @@ class Forwards extends Component {
       <>
         <h1>FORWARDS</h1>
         <div>
-          <table className="positionTable" class="sortable">
+          <table className="positionTable">
             <thead className="positionTableHeader">
               <tr className="positiontr">
                 <th className="positionTableProfileHead" scope="col">Profile</th>
@@ -76,7 +85,7 @@ class Forwards extends Component {
             </tbody>
           </table>
         </div>
-
+        <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL FORWARDS</button>
       </>
     );
   }
