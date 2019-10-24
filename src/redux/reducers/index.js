@@ -6,6 +6,8 @@ import forwards from './forwardsReducer';
 import forwardProfile from './forwardProfileReducer';
 import defense from './defenseReducer';
 import defenseProfile from './defenseProfileReducer';
+import goalie from './goalieReducer';
+import goalieProfile from './goalieProfileReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +23,8 @@ const rootReducer = combineReducers({
   forwardProfile,
   defense,
   defenseProfile,
+  goalie,
+  goalieProfile,
 });
 
 export default rootReducer;

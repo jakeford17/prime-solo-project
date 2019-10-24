@@ -14,6 +14,12 @@ import defenseProfileSaga from './defenseProfileSaga';
 import updateDefenseSaga from './updateDefenseSaga';
 import deleteDefenseSaga from './deleteDefenseSaga';
 import deleteAllDefenseSaga from './deleteAllDefenseSaga';
+import addGoalieSaga from './addGoalieSaga';
+import getGoalieSaga from './getGoalieSaga';
+import goalieProfileSaga from './goalieProfileSaga';
+import updateGoalieSaga from './updateGoalieSaga';
+import deleteGoalieSaga from './deleteGoalieSaga';
+import deleteAllGoaliesSaga from './deleteAllGoaliesSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -39,5 +45,11 @@ export default function* rootSaga() {
     updateDefenseSaga(),
     deleteDefenseSaga(),
     deleteAllDefenseSaga(),
+    addGoalieSaga(),
+    getGoalieSaga(),
+    goalieProfileSaga(),
+    updateGoalieSaga(),
+    deleteGoalieSaga(),
+    deleteAllGoaliesSaga(),
   ]);
 }

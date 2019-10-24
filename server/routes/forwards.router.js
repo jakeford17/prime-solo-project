@@ -12,7 +12,7 @@ const router = express.Router();
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/', (req, res, next) => {
+router.post('/', rejectUnauthenticated, (req, res, next) => {
     console.log("Object: ", req.body)
     let forward = req.body;
     const queryText = `INSERT INTO "forward" ("fname", "lname", "dob", "position", "shoots", "team", "league", "height", "weight", "epurl", "skating", "skating_comments", "puck_skills", "puck_skills_comments", "competitiveness", "comp_comments", "physicality", "phys_comments", "iq", "iq_comments", "defense", "def_comments", "psych", "psych_comments", "player_type", "round")
@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
         .catch(() => res.sendStatus(500));
 });
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "forward" ORDER BY "round";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/forwardprofile/:id', (req, res) => {
+router.get('/forwardprofile/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "forward" WHERE id=$1`;
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
@@ -42,7 +42,7 @@ router.get('/forwardprofile/:id', (req, res) => {
         });
 });
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
     const updatedF = req.body;
     const queryText = `UPDATE "forward" SET "fname" = $1, "lname" = $2, "dob" = $3, "position" = $4, "shoots" = $5, "team" = $6, "league" = $7, "height" = $8, "weight" = $9, "epurl" = $10, "skating" = $11, "skating_comments" = $12, "puck_skills" = $13, "puck_skills_comments" = $14, "competitiveness" = $15, "comp_comments" = $16, "physicality" = $17, "phys_comments" = $18, "iq" = $19, "iq_comments" = $20, "defense" = $21, "def_comments" = $22, "psych" = $23, "psych_comments" = $24, "player_type" = $25, "round" = $26 WHERE "id" = $27;`;
     const queryValues = [
@@ -56,7 +56,7 @@ router.put('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "forward" WHERE "id" = $1;`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "forward" WHERE "id" > 0;`;
     pool.query(queryText)
         .then((result) => {

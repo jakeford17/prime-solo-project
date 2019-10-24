@@ -26,6 +26,7 @@ import DefenseEdit from '../DefenseEdit/DefenseEdit';
 
 import CreateForward from '../CreateForward/CreateForward';
 import CreateDefense from '../CreateDefense/CreateDefense';
+import CreateGoalie from '../CreateGoalie/CreateGoalie';
 
 import './App.css';
 
@@ -78,6 +79,11 @@ class App extends Component {
                 exact
                 path="/createdefense"
                 component={CreateDefense}
+              />
+              <ProtectedRoute
+                exact
+                path="/creategoalie"
+                component={CreateGoalie}
               />
               <ProtectedRoute
                 path='/forwardprofile/:id'

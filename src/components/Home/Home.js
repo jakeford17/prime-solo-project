@@ -18,7 +18,7 @@ class Home extends Component {
 
   goalieClick = () => {
     console.log("GOALIE CLICKED");
-    // this.props.history.push(`/edit/${this.props.match.params.id}`);
+    this.props.history.push(`/creategoalie`);
   }
 
   render() {
