@@ -25,6 +25,7 @@ import GoalieProfile from '../GoalieProfile/GoalieProfile';
 
 import ForwardEdit from '../ForwardEdit/ForwardEdit';
 import DefenseEdit from '../DefenseEdit/DefenseEdit';
+import GoalieEdit from '../GoalieEdit/GoalieEdit'
 
 import CreateForward from '../CreateForward/CreateForward';
 import CreateDefense from '../CreateDefense/CreateDefense';
@@ -113,12 +114,20 @@ class App extends Component {
                 render={({ match }) => <DefenseEdit match={match} />}
               />
               <ProtectedRoute
+                path='/goalieedit/:id'
+                render={({ match }) => <GoalieEdit match={match} />}
+              />
+              <ProtectedRoute
                 path='/top'
                 render={({ match }) => <ForwardEdit match={match} />}
               />
               <ProtectedRoute
                 path='/dtop'
                 render={({ match }) => <DefenseEdit match={match} />}
+              />
+              <ProtectedRoute
+                path='/gtop'
+                render={({ match }) => <GoalieEdit match={match} />}
               />
               <ProtectedRoute
                 path='/basic'
@@ -129,12 +138,20 @@ class App extends Component {
                 render={({ match }) => <DefenseEdit match={match} />}
               />
               <ProtectedRoute
+                path='/gbasic'
+                render={({ match }) => <GoalieEdit match={match} />}
+              />
+              <ProtectedRoute
                 path='/skating'
                 render={({ match }) => <ForwardEdit match={match} />}
               />
               <ProtectedRoute
                 path='/dskating'
                 render={({ match }) => <DefenseEdit match={match} />}
+              />
+              <ProtectedRoute
+                path='/netcoverage'
+                render={({ match }) => <GoalieEdit match={match} />}
               />
               <ProtectedRoute
                 path='/puckskills'
@@ -145,12 +162,20 @@ class App extends Component {
                 render={({ match }) => <DefenseEdit match={match} />}
               />
               <ProtectedRoute
+                path='/quickness'
+                render={({ match }) => <GoalieEdit match={match} />}
+              />
+              <ProtectedRoute
                 path='/competitiveness'
                 render={({ match }) => <ForwardEdit match={match} />}
               />
               <ProtectedRoute
                 path='/dcompetitiveness'
                 render={({ match }) => <DefenseEdit match={match} />}
+              />
+              <ProtectedRoute
+                path='/reboundcontrol'
+                render={({ match }) => <GoalieEdit match={match} />}
               />
               <ProtectedRoute
                 path='/physical'
@@ -161,12 +186,20 @@ class App extends Component {
                 render={({ match }) => <DefenseEdit match={match} />}
               />
               <ProtectedRoute
+                path='/skills'
+                render={({ match }) => <GoalieEdit match={match} />}
+              />
+              <ProtectedRoute
                 path='/hockeyiq'
                 render={({ match }) => <ForwardEdit match={match} />}
               />
               <ProtectedRoute
                 path='/dhockeyiq'
                 render={({ match }) => <DefenseEdit match={match} />}
+              />
+              <ProtectedRoute
+                path='/gcompetitiveness'
+                render={({ match }) => <GoalieEdit match={match} />}
               />
               <ProtectedRoute
                 path='/defensive'
@@ -183,6 +216,10 @@ class App extends Component {
               <ProtectedRoute
                 path='/dpsych'
                 render={({ match }) => <DefenseEdit match={match} />}
+              />
+              <ProtectedRoute
+                path='/gpsych'
+                render={({ match }) => <GoalieEdit match={match} />}
               />
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>Please log in to view this page (404).</h1>} />

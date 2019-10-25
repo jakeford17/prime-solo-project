@@ -21,10 +21,10 @@ class GoalieProfile extends Component {
         this.props.dispatch({ type: 'GET_ONE_GOALIE', payload: this.props.match.params.id })
     }
 
-    // editClick = () => {
-    //     console.log("Edit clicked");
-    //     // this.props.history.push(`/goalieedit/${this.props.match.params.id}`);
-    // }
+    editClick = () => {
+        console.log("Edit clicked");
+        this.props.history.push(`/goalieedit/${this.props.match.params.id}`);
+    }
 
     render() {
         return (
@@ -257,7 +257,7 @@ class GoalieProfile extends Component {
                     )
                 })}
                 <br />
-                {/* <button className="mainButton" onClick={this.editClick}>Edit Profile</button> */}
+                <button className="mainButton" onClick={this.editClick}>Edit Profile</button>
             </div>
         )
     }
