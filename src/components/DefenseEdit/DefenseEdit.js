@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 class DefenseEdit extends Component {
     state = {
@@ -67,19 +68,33 @@ class DefenseEdit extends Component {
         })
     }
 
-    handleBack = () => {
-        if (window.confirm("Are you sure want go back? You will lose any changes made.")) {
-            this.props.history.push(`/defenseprofile/${this.props.match.params.id}`)
-        } else {
-            console.log("Back action canceled")
-        }
+    handleBack = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "If you go back without saving, your changes will be lost.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.history.push(`/defenseprofile/${this.props.match.params.id}`)
+                } else {
+                    return;
+                }
+            });
     }
 
-    handleSave = () => {
+    handleSave = (id) => {
         this.props.dispatch({ type: 'UPDATE_DEFENSE', payload: this.state });
         this.setState({
             state: this.state
         })
+        swal({
+            title: "Player saved.",
+            text: "Your player changes were saved in the database!",
+            icon: "success",
+        });
         this.props.history.push(`/defenseprofile/${this.props.match.params.id}`)
     }
 
@@ -92,13 +107,24 @@ class DefenseEdit extends Component {
     }
 
     handleDelete = (id) => {
-        if (window.confirm("Are you sure want to delete this player? This action cannot be undone.")) {
-            console.log("DELETE ITEM WITH ID: ", id);
-            this.props.dispatch({ type: 'DELETE_DEFENSE', payload: id });
-            this.props.history.push(`/defense`);
-        } else {
-            console.log("Reject", id);
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this player's file.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.dispatch({ type: 'DELETE_DEFENSE', payload: id });
+                    swal("Player deleted.", {
+                        icon: "success",
+                    });
+                    this.props.history.push(`/defense`);
+                } else {
+                    swal("Player not deleted.");
+                }
+            });
     }
 
     render() {
@@ -120,7 +146,7 @@ class DefenseEdit extends Component {
                                 <li className="edit-nav-li"><a href="#ddefensive">Defensive</a></li>
                                 <li className="edit-nav-li"><a href="#dpsych">Psychological Factors</a></li>
                             </ul>
-                            <a id="dbasic"></a><h2>Basic Info</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dbasic"></a><h2>Basic Info</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             First Name:<br />
                             <input className="longInput" label="First Name" variant="filled" value={this.state.fname} onChange={(event) => this.handleChange(event, "fname")} /><br /><br />
                             Last Name:<br />
@@ -143,7 +169,7 @@ class DefenseEdit extends Component {
                             <input maxlength="9" className="shortInput" label="Round" variant="filled" value={this.state.round} onChange={(event) => this.handleChange(event, "round")} /><br /><br />
                             EliteProspects URL:<br />
                             <input className="superLongInput" label="EliteProspects" variant="filled" value={this.state.epurl} onChange={(event) => this.handleChange(event, "epurl")} /><br /><br />
-                            <h2>Skating</h2>&nbsp;<a href="#dtop">Top of Page</a><a id="dskating"></a><br/><br/>
+                            <h2>Skating</h2>&nbsp;<a href="#dtop">Top of Page</a><a id="dskating"></a><br /><br />
                             Skating Rating:<br />
                             <input maxlength="2" className="shortInput" label="Skating" variant="filled" value={this.state.skating} onChange={(event) => this.handleChange(event, "skating")} /><br /><br />
                             Skating Comments:<br />
@@ -156,7 +182,7 @@ class DefenseEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="dpuckskills"></a><h2>Puck Skills</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dpuckskills"></a><h2>Puck Skills</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Puck Skills Rating:<br />
                             <input maxlength="2" className="shortInput" label="Puck Skills" variant="filled" value={this.state.puck_skills} onChange={(event) => this.handleChange(event, "puck_skills")} /><br /><br />
                             Puck Skills Comments:<br />
@@ -174,7 +200,7 @@ class DefenseEdit extends Component {
                                 <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
                                 <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
                             </ul>
-                            <a id="dcompetitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dcompetitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Competitiveness Rating:<br />
                             <input maxlength="2" className="shortInput" label="Competitiveness" variant="filled" value={this.state.competitiveness} onChange={(event) => this.handleChange(event, "competitiveness")} /><br /><br />
                             Competitiveness Comments:<br />
@@ -187,7 +213,7 @@ class DefenseEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="dphysical"></a><h2>Physicality</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dphysical"></a><h2>Physicality</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Physicality Rating:<br />
                             <input maxlength="2" className="shortInput" label="Physicality" variant="filled" value={this.state.physicality} onChange={(event) => this.handleChange(event, "physicality")} /><br /><br />
                             Physicality Comments:<br />
@@ -200,7 +226,7 @@ class DefenseEdit extends Component {
                                 <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
                                 <li>Fighting (willing to fight and is capable)</li>
                             </ul>
-                            <a id="dhockeyiq"></a><h2>Hockey Sense</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dhockeyiq"></a><h2>Hockey Sense</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Hockey Sense Rating:<br />
                             <input maxlength="2" className="shortInput" label="IQ" variant="filled" value={this.state.iq} onChange={(event) => this.handleChange(event, "iq")} /><br /><br />
                             Hockey Sense Comments:<br />
@@ -214,7 +240,7 @@ class DefenseEdit extends Component {
                                 <li>Play under pressure (good decision making when being pressured/forechecked)</li>
                                 <li>Versatility (ability to play various positions, roles, special teams)</li>
                             </ul>
-                            <a id="ddefensive"></a><h2>Defensive Play</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="ddefensive"></a><h2>Defensive Play</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Defensive Play Rating:<br />
                             <input maxlength="2" className="shortInput" label="Defense" variant="filled" value={this.state.defense} onChange={(event) => this.handleChange(event, "defense")} /><br /><br />
                             Defensive Play Comments:<br />
@@ -226,7 +252,7 @@ class DefenseEdit extends Component {
                                 <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
                                 <li>Defensive reliability (is he used in critical situations?)</li>
                             </ul>
-                            <a id="dpsych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#dtop">Top of Page</a><br/><br/>
+                            <a id="dpsych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#dtop">Top of Page</a><br /><br />
                             Psychological Factors Rating:<br />
                             <input maxlength="2" className="shortInput" label="Psychological" variant="filled" value={this.state.psych} onChange={(event) => this.handleChange(event, "psych")} /><br /><br />
                             Psychological Factors Comments:<br />
@@ -237,7 +263,7 @@ class DefenseEdit extends Component {
                                 <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
                                 <li>Confidence (displays noticeable confidence in on-ice activity)</li>
                             </ul>
-                            
+
                         </div>
                     )
                 })}

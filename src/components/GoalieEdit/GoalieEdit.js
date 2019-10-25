@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 class GoalieEdit extends Component {
     state = {
@@ -67,19 +68,33 @@ class GoalieEdit extends Component {
         })
     }
 
-    handleBack = () => {
-        if (window.confirm("Are you sure want go back? You will lose any changes made.")) {
-            this.props.history.push(`/goalieprofile/${this.props.match.params.id}`)
-        } else {
-            console.log("Back action canceled")
-        }
+    handleBack = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "If you go back without saving, your changes will be lost.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.history.push(`/goalieprofile/${this.props.match.params.id}`)
+                } else {
+                    return;
+                }
+            });
     }
 
-    handleSave = () => {
+    handleSave = (id) => {
         this.props.dispatch({ type: 'UPDATE_GOALIE', payload: this.state });
         this.setState({
             state: this.state
         })
+        swal({
+            title: "Player saved.",
+            text: "Your player changes were saved in the database!",
+            icon: "success",
+        });
         this.props.history.push(`/goalieprofile/${this.props.match.params.id}`)
     }
 
@@ -92,13 +107,24 @@ class GoalieEdit extends Component {
     }
 
     handleDelete = (id) => {
-        if (window.confirm("Are you sure want to delete this player? This action cannot be undone.")) {
-            console.log("DELETE ITEM WITH ID: ", id);
-            this.props.dispatch({ type: 'DELETE_GOALIE', payload: id });
-            this.props.history.push(`/goalies`);
-        } else {
-            console.log("Reject", id);
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this player's file.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.dispatch({ type: 'DELETE_GOALIE', payload: id });
+                    swal("Player deleted.", {
+                        icon: "success",
+                    });
+                    this.props.history.push(`/goalies`);
+                } else {
+                    swal("Player not deleted.");
+                }
+            });
     }
 
     render() {
