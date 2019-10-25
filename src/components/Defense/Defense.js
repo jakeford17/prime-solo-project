@@ -4,6 +4,7 @@ import { createHashHistory } from 'history';
 import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
+import swal from 'sweetalert';
 
 class Defense extends Component {
   componentDidMount() {
@@ -21,11 +22,30 @@ class Defense extends Component {
 
   handleDeleteAll = (id) => {
     if (window.confirm("Are you sure want to delete all defensemen? This action cannot be undone.")) {
-      this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
-      this.props.history.push(`/defense`);
     } else {
       console.log("Delete rejected");
     }
+  }
+
+  handleDeleteAll = (id) => {
+    swal({
+        title: "ARE YOU SURE?",
+        text: "This action will delete all defensemen from the database. Once deleted, these files cannot be recovered.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+              this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
+              swal("All defensemen deleted.", {
+                    icon: "success",
+                });
+                this.props.history.push(`/defense`);
+            } else {
+                swal("Defensemen not deleted.");
+            }
+        });
   }
 
   render() {

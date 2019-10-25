@@ -4,6 +4,7 @@ import { createHashHistory } from 'history';
 import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
+import swal from 'sweetalert';
 
 class Forwards extends Component {
   componentDidMount() {
@@ -21,11 +22,30 @@ class Forwards extends Component {
 
   handleDeleteAll = (id) => {
       if (window.confirm("Are you sure want to delete all forwards? This action cannot be undone.")) {
-          this.props.dispatch({ type: 'DELETE_ALL_FORWARDS', payload: id });
-          this.props.history.push(`/forwards`);
       } else {
           console.log("Delete rejected");
       }
+  }
+
+  handleDeleteAll = (id) => {
+    swal({
+      title: "ARE YOU SURE?",
+      text: "This action will delete all forwards from the database. Once deleted, these files cannot be recovered.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          this.props.dispatch({ type: 'DELETE_ALL_FORWARDS', payload: id });
+          swal("All forwards deleted.", {
+            icon: "success",
+          });
+          this.props.history.push(`/forwards`);
+        } else {
+          swal("Forwards not deleted.");
+        }
+      });
   }
 
   render() {
