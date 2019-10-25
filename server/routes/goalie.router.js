@@ -12,7 +12,7 @@ const router = express.Router();
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/', (req, res, next) => {
+router.post('/', rejectUnauthenticated, (req, res, next) => {
     console.log("Object: ", req.body)
     let goalie = req.body;
     const queryText = `INSERT INTO "goalie" ("fname", "lname", "dob", "catches", "team", "league", "height", "weight", "epurl", "net_coverage", "nc_comments", "quickness", "quickness_comments", "rebound_control", "rc_comments", "competitiveness", "comp_comments", "skills", "skills_comments", "psych", "psych_comments", "where", "style", "personality", "round")
@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
         .catch(() => res.sendStatus(500));
 });
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "goalie" ORDER BY "round";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/goalieprofile/:id', (req, res) => {
+router.get('/goalieprofile/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "goalie" WHERE id=$1`;
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
@@ -42,7 +42,7 @@ router.get('/goalieprofile/:id', (req, res) => {
         });
 });
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
     const updatedG = req.body;
     const queryText = `UPDATE "goalie" SET "fname" = $1, "lname" = $2, "dob" = $3, "catches" = $4, "team" = $5, "league" = $6, "height" = $7, "weight" = $8, "epurl" = $9, "net_coverage" = $10, "nc_comments" = $11, "quickness" = $12, "quickness_comments" = $13, "rebound_control" = $14, "rc_comments" = $15, "competitiveness" = $16, "comp_comments" = $17, "skills" = $18, "skills_comments" = $19, "psych" = $20, "psych_comments" = $21, "where" = $22, "style" = $23, "personality" = $24, "round" = $25 WHERE "id" = $26;`;
     const queryValues = [
@@ -56,7 +56,7 @@ router.put('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "goalie" WHERE "id" = $1;`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "goalie" WHERE "id" > 0;`;
     pool.query(queryText)
         .then((result) => {

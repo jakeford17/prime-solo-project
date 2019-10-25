@@ -12,7 +12,7 @@ const router = express.Router();
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/', (req, res, next) => {
+router.post('/', rejectUnauthenticated, (req, res, next) => {
     console.log("Object: ", req.body)
     let defense = req.body;
     const queryText = `INSERT INTO "defense" ("fname", "lname", "dob", "shoots", "team", "league", "height", "weight", "epurl", "skating", "skating_comments", "puck_skills", "puck_skills_comments", "competitiveness", "comp_comments", "physicality", "phys_comments", "iq", "iq_comments", "defense", "def_comments", "psych", "psych_comments", "player_type", "round")
@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
         .catch(() => res.sendStatus(500));
 });
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "defense" ORDER BY "round";`;
     pool.query(queryText)
         .then((result) => { res.send(result.rows); })
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/defenseprofile/:id', (req, res) => {
+router.get('/defenseprofile/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "defense" WHERE id=$1`;
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
@@ -56,7 +56,7 @@ router.put('/', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "defense" WHERE "id" = $1;`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "defense" WHERE "id" > 0;`;
     pool.query(queryText)
         .then((result) => {
