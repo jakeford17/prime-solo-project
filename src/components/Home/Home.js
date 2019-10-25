@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { createHashHistory } from 'history';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -25,7 +26,7 @@ class Home extends Component {
     return (
       <div>
         <div>
-          <h1>Welcome!</h1>
+          <h1>Welcome, {this.props.user.username}!</h1>
           <p>
             Welcome to Hockey Prospect DB, a site used to help track NHL prospects for next June's NHL Entry Draft!
           </p>
@@ -39,4 +40,9 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  user: state.user
+})
+
+export const history = createHashHistory()
+export default connect(mapStateToProps)(Home);

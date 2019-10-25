@@ -37,7 +37,7 @@ router.get('/forwardprofile/:id', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
-            console.log('Error in SELECT MOVIE query', err);
+            console.log('Error in SELECT FORWARD query', err);
             res.sendStatus(500);
         });
 });
@@ -51,7 +51,7 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, queryValues)
         .then(() => { res.sendStatus(200); })
         .catch((err) => {
-            console.log('Error completing UPDATE MOVIE query', err);
+            console.log('Error completing UPDATE FORWARD query', err);
             res.sendStatus(500);
         });
 });

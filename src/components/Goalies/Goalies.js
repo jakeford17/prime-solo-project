@@ -8,8 +8,13 @@ import swal from 'sweetalert';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class Goalies extends Component {
+  // state = {
+  //   authorized: false,
+  // }
+
   componentDidMount() {
     this.getDefense()
+    console.log("Admin level", this.props.user.admin)
   }
 
   getDefense() {
@@ -43,6 +48,13 @@ class Goalies extends Component {
   }
 
   render() {
+    let deleteButton
+    if (this.props.user.admin === 1) {
+      deleteButton = <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL GOALTENDERS</button>
+    } if (this.props.user.admin === 2) {
+      deleteButton = <div></div>
+    }
+
     let goalie = this.props.goalie.map((goalieItem) => {
       return (
         <tr className="positiontr" key={goalieItem.id}>
@@ -100,14 +112,15 @@ class Goalies extends Component {
             </tbody>
           </table>
         </div>
-        <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL GOALTENDERS</button>
+        {deleteButton}
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  goalie: state.goalie
+  goalie: state.goalie, 
+  user: state.user
 })
 
 export const history = createHashHistory()

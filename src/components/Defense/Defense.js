@@ -50,6 +50,13 @@ class Defense extends Component {
   }
 
   render() {
+    let deleteButton
+    if (this.props.user.admin === 1) {
+      deleteButton = <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL DEFENSEMEN</button>
+    } if (this.props.user.admin === 2) {
+      deleteButton = <div></div>
+    }
+
     let defense = this.props.defense.map((defenseItem) => {
       return (
         <tr className="positiontr" key={defenseItem.id}>
@@ -107,14 +114,15 @@ class Defense extends Component {
             </tbody>
           </table>
         </div>
-        <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL DEFENSEMEN</button>
+        {deleteButton}
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  defense: state.defense
+  defense: state.defense,
+  user: state.user
 })
 
 export const history = createHashHistory()

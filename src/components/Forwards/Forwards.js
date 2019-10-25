@@ -50,6 +50,13 @@ class Forwards extends Component {
   }
 
   render() {
+    let deleteButton
+    if (this.props.user.admin === 1) {
+      deleteButton = <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL FORWARDS</button>
+    } if (this.props.user.admin === 2) {
+      deleteButton = <div></div>
+    }
+
     let forwards = this.props.forwards.map((forwardItem) => {
       return (
         <tr className="positiontr" key={forwardItem.id}>
@@ -107,14 +114,15 @@ class Forwards extends Component {
             </tbody>
           </table>
         </div>
-        <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL FORWARDS</button>
+        {deleteButton}
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  forwards: state.forwards
+  forwards: state.forwards,
+  user: state.user
 })
 
 export const history = createHashHistory()

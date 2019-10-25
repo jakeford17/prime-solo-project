@@ -20,7 +20,7 @@ router.post('/', rejectUnauthenticated, (req, res, next) => {
     pool.query(queryText, [goalie.fname, goalie.lname, goalie.dob, goalie.catches, goalie.team, goalie.league, goalie.height, goalie.weight, goalie.epurl, goalie.net_coverage, goalie.nc_comments, goalie.quickness, goalie.quickness_comments, goalie.rebound_control, goalie.rc_comments, goalie.competitiveness, goalie.comp_comments, goalie.skills, goalie.skills_comments, goalie.psych, goalie.psych_comments, goalie.where, goalie.style, goalie.personality, goalie.round])
         .then(() => res.sendStatus(200))
         .catch(() => res.sendStatus(500));
-});
+}); 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM "goalie" ORDER BY "round";`;
@@ -37,7 +37,7 @@ router.get('/goalieprofile/:id', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, [req.params.id])
         .then((result) => { res.send(result.rows); })
         .catch((err) => {
-            console.log('Error in SELECT MOVIE query', err);
+            console.log('Error in SELECT GOALIE query', err);
             res.sendStatus(500);
         });
 });
@@ -51,7 +51,7 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     pool.query(queryText, queryValues)
         .then(() => { res.sendStatus(200); })
         .catch((err) => {
-            console.log('Error completing UPDATE MOVIE query', err);
+            console.log('Error completing UPDATE GOALIE query', err);
             res.sendStatus(500);
         });
 });
