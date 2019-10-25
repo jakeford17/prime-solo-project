@@ -17,9 +17,11 @@ import Home from '../Home/Home';
 
 import Forwards from '../Forwards/Forwards';
 import Defense from '../Defense/Defense';
+import Goalies from '../Goalies/Goalies';
 
 import ForwardProfile from '../ForwardProfile/ForwardProfile';
 import DefenseProfile from '../DefenseProfile/DefenseProfile';
+import GoalieProfile from '../GoalieProfile/GoalieProfile';
 
 import ForwardEdit from '../ForwardEdit/ForwardEdit';
 import DefenseEdit from '../DefenseEdit/DefenseEdit';
@@ -72,6 +74,11 @@ class App extends Component {
               />
               <ProtectedRoute
                 exact
+                path="/goalies"
+                component={Goalies}
+              />
+              <ProtectedRoute
+                exact
                 path="/createforward"
                 component={CreateForward}
               />
@@ -92,6 +99,10 @@ class App extends Component {
               <ProtectedRoute
                 path='/defenseprofile/:id'
                 render={({ match }) => <DefenseProfile match={match} />}
+              />
+              <ProtectedRoute
+                path='/goalieprofile/:id'
+                render={({ match }) => <GoalieProfile match={match} />}
               />
               <ProtectedRoute
                 path='/forwardedit/:id'

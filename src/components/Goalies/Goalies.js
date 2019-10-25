@@ -5,66 +5,66 @@ import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 
-class Defense extends Component {
+class Goalies extends Component {
   componentDidMount() {
     this.getDefense()
   }
 
   getDefense() {
-    this.props.dispatch({ type: 'GET_DEFENSE' });
+    this.props.dispatch({ type: 'GET_GOALIE' });
   }
 
-  defenseProfile = (defense) => {
+  goalieProfile = (goalie) => {
     console.log("Evaluation Clicked")
-    this.props.history.push(`/defenseprofile/${defense.id}`)
+    this.props.history.push(`/goalieprofile/${goalie.id}`)
   }
 
-  handleDeleteAll = (id) => {
-    if (window.confirm("Are you sure want to delete all defensemen? This action cannot be undone.")) {
-      this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
-      this.props.history.push(`/defense`);
-    } else {
-      console.log("Delete rejected");
-    }
-  }
+//   handleDeleteAll = (id) => {
+//     if (window.confirm("Are you sure want to delete all defensemen? This action cannot be undone.")) {
+//       this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
+//       this.props.history.push(`/defense`);
+//     } else {
+//       console.log("Delete rejected");
+//     }
+//   }
 
   render() {
-    let defense = this.props.defense.map((defenseItem) => {
+    let goalie = this.props.goalie.map((goalieItem) => {
       return (
-        <tr className="positiontr" key={defenseItem.id}>
+        <tr className="positiontr" key={goalieItem.id}>
           <td className="positiontd">
-            <button className="profileButton" onClick={() => this.defenseProfile(defenseItem)}><Icon icon={hockeyPuck} /></button>
+            <button className="profileButton" onClick={() => this.goalieProfile(goalieItem)}><Icon icon={hockeyPuck} /></button>
           </td>
           <td className="positiontd">
-            {defenseItem.fname}
+            {goalieItem.fname}
           </td>
           <td className="positiontd">
-            {defenseItem.lname}
+            {goalieItem.lname}
           </td>
           <td className="positiontd">
-            {defenseItem.team}
+            {goalieItem.team}
           </td>
           <td className="positiontd">
-            {defenseItem.league}
+            {goalieItem.league}
           </td>
           <td className="positiontd">
-            <Moment format="MM/DD/YY">{defenseItem.dob}</Moment>
+            <Moment format="MM/DD/YY">{goalieItem.dob}</Moment>
           </td>
           <td className="positiontd">
-            {defenseItem.height}
+            {goalieItem.height}
           </td>
           <td className="positiontd">
-            {defenseItem.weight}
+            {goalieItem.weight}
           </td>
           <td className="positiontd" className="positionRightTD">
-            {defenseItem.round}
+            {goalieItem.round}
           </td>
         </tr>
       )
     })
     return (
       <>
-        <h1>DEFENSEMEN</h1>
+        <h1>GOALTENDERS</h1>
         <div>
           <table className="positionTable">
             <thead className="positionTableHeader">
@@ -81,19 +81,19 @@ class Defense extends Component {
               </tr>
             </thead>
             <tbody>
-              {defense}
+              {goalie}
             </tbody>
           </table>
         </div>
-        <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL DEFENSEMEN</button>
+        {/* <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL DEFENSEMEN</button> */}
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  defense: state.defense
+  goalie: state.goalie
 })
 
 export const history = createHashHistory()
-export default connect(mapStateToProps)(Defense);
+export default connect(mapStateToProps)(Goalies);

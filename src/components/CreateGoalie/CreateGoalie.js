@@ -263,11 +263,13 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.netCovComChange} value={this.state.nc_comments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Acceleration (first few strides, ability to pull away from/catch other players)</li>
-                                <li>Speed (when in full stride)</li>
-                                <li>Balance (strong on his skates)</li>
-                                <li>Mobility (agility, footwork, pivots, stops, and starts)</li>
-                                <li>Backward skating (overall backward skating ability)</li>
+                                <li>Angles initial setup (how well he covers angles on initial shots)</li>
+                                <li>Lateral angle coverage (how good his angles are after moving laterally</li>
+                                <li>Butterfly coverage upper corners (how well he covers upper corners when in butterfly)</li>
+                                <li>Butterfly coverage lower corners (how well he covers lower corners when in butterfly)</li>
+                                <li>Five-hole coverage (how well he covers his five hole when in butterfly)</li>
+                                <li>Square to shooter (consistency of squaring himself to the puck carrier)</li>
+                                <li>Spreading out the body (spreading out to eliminate holes in stance)</li>
                             </ul>
                         </div>
                     </TabPanel>
@@ -289,16 +291,13 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.quicknessComChange} value={this.state.quickness_comments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
-                                <li>Shot strength (does he have a heavy shot?)</li>
-                                <li>Shot release (ability to shoot without getting set, off the stickhandle)</li>
-                                <li>Shot repertoire (quality of wrist, slap, snap, and backhand shots)</li>
-                                <li>Stickhandling ability (can handle the puck at top speed; controls the puck in tight spaces and along boards)</li>
-                                <li>Puck protection (ability to adjust body position and balance to keep/acquire the puck)</li>
-                                <li>Faceoffs (gets possession of the puck and is used in all zones)</li>
-                                <li>Giving a pass (delivers puck for easy handling; leads his man)</li>
-                                <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
-                                <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
+                                <li>Recovery (how fast he recovers to his feet for a rebound attempt)</li>
+                                <li>Glove hand (quickness of glove hand)</li>
+                                <li>Reactions (quickness of reactions and reflexes)</li>
+                                <li>Lateral quickness (lateral movement across crease)</li>
+                                <li>Getting set (quickness setting up for initial shots and rebounds)</li>
+                                <li>Post to post (quickness moving from post to post)</li>
+                                <li>Gathering loose pucks (quickness recovering loose pucks)</li>
                             </ul>
                         </div>
                     </TabPanel>
@@ -320,11 +319,9 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.reboundComChange} value={this.state.rc_comments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
-                                <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
-                                <li>Conditioning (overall physical conditioning, build, strength, stamina, and durability; rarely misses games) </li>
-                                <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
-                                <li>Fighting (willing to fight and is capable)</li>
+                                <li>Rebounds low shots (directing the puck out of danger with stick and pads on low shots)</li>
+                                <li>Rebounds high shots (trapping the puck with body to eliminate rebounds)</li>
+                                <li>Blocker control (directing the puck out of danger effectively with blocker hand)</li>
                             </ul>
                         </div>
                     </TabPanel>
@@ -346,11 +343,11 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.compComChange} value={this.state.comp_comments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
-                                <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
-                                <li>Attitude (level of maturity: well developed or "has a way to go")</li>
-                                <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
-                                <li>Forechecking (puck pursuit; fights through checks)</li>
+                                <li>Drive and determination (how much drive and determination he shows)</li>
+                                <li>Challenging shooters (how well he moves out to challenge shooters)</li>
+                                <li>Work ethic (how well he competes regardless of the score)</li>
+                                <li>Holding ground (strength at holding ground with traffic in front and players cutting to the net)</li>
+                                <li>Communication (how well he communicates with his teammates/defense)</li>
                             </ul>
                         </div>
                     </TabPanel>
@@ -372,12 +369,18 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.skillsComChange} value={this.state.skills_comments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
-                                <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
-                                <li>Discipline (avoids bad penalties, accepts bad calls, not drawn into retaliation)</li>
-                                <li>Decision making (ability to sort out options and make the best choices)</li>
-                                <li>Play under pressure (good decision making when being pressured/forechecked)</li>
-                                <li>Versatility (ability to play various positions, roles, special teams)</li>
+                                <li>Reading the play (how well he reads what is developing in front of him)</li>
+                                <li>Skating ability (overall skating ability)</li>
+                                <li>Balance (how good is his balance is his stance and in lateral movements?)</li>
+                                <li>Screens (ability to track the puck through traffic)</li>
+                                <li>Patience (resists committing too soon)</li>
+                                <li>Wrap arounds (ability to block wrap-around attempts)</li>
+                                <li>Stopping puck behind the net (stopping/controlling the puck on dump-ins)</li>
+                                <li>Moving puck (effectively handling the puck to help teammates)</li>
+                                <li>Athleticism (athletic ability and ability to make acrobatic saves)</li>
+                                <li>Stick control (uses stick to poke check and disrupt pass attempts)</li>
+                                <li>Breakaways (performance on breakaways, penalty shots, and/or shootout attempts)</li>
+                                <li>Flexibility (overall flexibility)</li>
                             </ul>
                         </div>
                     </TabPanel>
@@ -399,9 +402,11 @@ class CreateGoalie extends Component {
                             <textarea className="categoryComment" onChange={this.psychComChange} value={this.state.psychComments} />
                             <h3>What to Watch:</h3>
                             <ul>
-                                <li>Leadership (takes charge, displays on-ice leadership)</li>
-                                <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
-                                <li>Confidence (displays noticeable confidence in on-ice activity)</li>
+                                <li>Confidence (how well he shows confidence while playing)</li>
+                                <li>Bouncing back (how he responds after a bad goal or bad game)</li>
+                                <li>Pressure situations (performing in big games, making big saves/keeping team in game)</li>
+                                <li>Consistency (consistency of play over the course of a game/season)</li>
+                                <li>Focus and concentration (how well he concentrates throughout the game)</li>
                             </ul>
                         </div>
                     </TabPanel>
