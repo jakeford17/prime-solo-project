@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import Moment from 'react-moment';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
+
 
 // import {
 //     HashRouter as Router,
@@ -13,9 +15,9 @@ class GoalieProfile extends Component {
         this.getGoalieInfo();
     }
 
-    // componentDidUpdate() {
-    //     this.getGoalieInfo();
-    // }
+    componentDidUpdate() {
+        this.getGoalieInfo();
+    }
 
     getGoalieInfo = () => {
         this.props.dispatch({ type: 'GET_ONE_GOALIE', payload: this.props.match.params.id })
@@ -29,6 +31,7 @@ class GoalieProfile extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount />
                 {this.props.goalieProfile.map((oneGoalie) => {
                     return (
                         <div key={oneGoalie.id}>

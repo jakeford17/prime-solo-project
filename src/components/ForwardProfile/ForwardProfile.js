@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import Moment from 'react-moment';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 // import {
 //     HashRouter as Router,
@@ -13,9 +14,9 @@ class ForwardProfile extends Component {
         this.getForwardInfo();
     }
 
-    // componentDidUpdate() {
-    //     this.getForwardInfo();
-    // }
+    componentDidUpdate() {
+        this.getForwardInfo();
+    }
 
     getForwardInfo = () => {
         this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id })
@@ -29,6 +30,7 @@ class ForwardProfile extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount />
                 {this.props.forwardProfile.map((oneForward) => {
                     return (
                         <div key={oneForward.id}>
@@ -140,7 +142,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PUCK SKILLS</h3>
+                                            <h3>PUCK SKILLS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -161,7 +163,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>COMPETITIVENESS</h3>
+                                            <h3>COMPETITIVENESS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -182,7 +184,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PHYSICALITY</h3>
+                                            <h3>PHYSICALITY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -203,7 +205,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>HOCKEY SENSE</h3>
+                                            <h3>HOCKEY SENSE</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -224,7 +226,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>DEFENSIVE PLAY</h3>
+                                            <h3>DEFENSIVE PLAY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -245,7 +247,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PSYCHOLOGICAL FACTORS</h3>
+                                            <h3>PSYCHOLOGICAL FACTORS</h3>
                                         </td>
                                     </tr>
                                     <tr>

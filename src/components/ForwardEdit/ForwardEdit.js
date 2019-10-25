@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class ForwardEdit extends Component {
     state = {
@@ -140,6 +141,7 @@ class ForwardEdit extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount/>
                 {this.props.forwardProfile.map((oneForward) => {
                     return (
                         <div key={oneForward.id}>

@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class Forwards extends Component {
   componentDidMount() {
@@ -21,10 +22,10 @@ class Forwards extends Component {
   }
 
   handleDeleteAll = (id) => {
-      if (window.confirm("Are you sure want to delete all forwards? This action cannot be undone.")) {
-      } else {
-          console.log("Delete rejected");
-      }
+    if (window.confirm("Are you sure want to delete all forwards? This action cannot be undone.")) {
+    } else {
+      console.log("Delete rejected");
+    }
   }
 
   handleDeleteAll = (id) => {
@@ -86,6 +87,7 @@ class Forwards extends Component {
       <>
         <h1>FORWARDS</h1>
         <div>
+          <ScrollToTopOnMount />
           <table className="positionTable">
             <thead className="positionTableHeader">
               <tr className="positiontr">

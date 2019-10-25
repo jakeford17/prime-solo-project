@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <ScrollToTop />
+          <ScrollToTopOnMount />
           <Nav />
           <div className="content">
             <Switch>

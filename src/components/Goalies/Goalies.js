@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class Goalies extends Component {
   componentDidMount() {
@@ -79,6 +80,7 @@ class Goalies extends Component {
       <>
         <h1>GOALTENDERS</h1>
         <div>
+          <ScrollToTopOnMount />
           <table className="positionTable">
             <thead className="positionTableHeader">
               <tr className="positiontr">

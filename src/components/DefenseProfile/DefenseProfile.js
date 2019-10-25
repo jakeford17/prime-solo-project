@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import Moment from 'react-moment';
-
-// import {
-//     HashRouter as Router,
-//     Link
-//   } from 'react-router-dom';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class DefenseProfile extends Component {
     componentDidMount() {
         this.getDefenseInfo();
     }
 
-    // componentDidUpdate() {
-    //     this.getDefenseInfo();
-    // }
+    componentDidUpdate() {
+        this.getDefenseInfo();
+    }
 
     getDefenseInfo = () => {
         this.props.dispatch({ type: 'GET_ONE_DEFENSE', payload: this.props.match.params.id })
@@ -29,6 +25,7 @@ class DefenseProfile extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount />
                 {this.props.defenseProfile.map((oneDefense) => {
                     return (
                         <div key={oneDefense.id}>
@@ -132,7 +129,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PUCK SKILLS</h3>
+                                            <h3>PUCK SKILLS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -153,7 +150,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>COMPETITIVENESS</h3>
+                                            <h3>COMPETITIVENESS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -174,7 +171,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PHYSICALITY</h3>
+                                            <h3>PHYSICALITY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -195,7 +192,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>HOCKEY SENSE</h3>
+                                            <h3>HOCKEY SENSE</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -216,7 +213,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>DEFENSIVE PLAY</h3>
+                                            <h3>DEFENSIVE PLAY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -237,7 +234,7 @@ class DefenseProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                        <h3>PSYCHOLOGICAL FACTORS</h3>
+                                            <h3>PSYCHOLOGICAL FACTORS</h3>
                                         </td>
                                     </tr>
                                     <tr>

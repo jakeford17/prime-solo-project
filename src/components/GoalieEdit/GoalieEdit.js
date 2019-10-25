@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class GoalieEdit extends Component {
     state = {
@@ -130,6 +131,7 @@ class GoalieEdit extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount />
                 {this.props.goalieProfile.map((oneGoalie) => {
                     return (
                         <div key={oneGoalie.id}>
@@ -145,7 +147,7 @@ class GoalieEdit extends Component {
                                 <li className="edit-nav-li"><a href="#gcompetitiveness">Competitiveness</a></li>
                                 <li className="edit-nav-li"><a href="#gpsych">Psychological Factors</a></li>
                             </ul>
-                            <a id="dbasic"></a><h2>Basic Info</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="dbasic"></a><h2>Basic Info</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             First Name:<br />
                             <input className="longInput" label="First Name" variant="filled" value={this.state.fname} onChange={(event) => this.handleChange(event, "fname")} /><br /><br />
                             Last Name:<br />
@@ -172,7 +174,7 @@ class GoalieEdit extends Component {
                             <input maxlength="9" className="shortInput" label="Round" variant="filled" value={this.state.round} onChange={(event) => this.handleChange(event, "round")} /><br /><br />
                             EliteProspects URL:<br />
                             <input className="superLongInput" label="EliteProspects" variant="filled" value={this.state.epurl} onChange={(event) => this.handleChange(event, "epurl")} /><br /><br />
-                            <h2>Net Coverage</h2>&nbsp;<a href="#gtop">Top of Page</a><a id="netcoverage"></a><br/><br/>
+                            <h2>Net Coverage</h2>&nbsp;<a href="#gtop">Top of Page</a><a id="netcoverage"></a><br /><br />
                             Net Coverage Rating:<br />
                             <input maxlength="2" className="shortInput" label="Net Coverage" variant="filled" value={this.state.net_coverage} onChange={(event) => this.handleChange(event, "net_coverage")} /><br /><br />
                             Net Coverage Comments:<br />
@@ -187,7 +189,7 @@ class GoalieEdit extends Component {
                                 <li>Square to shooter (consistency of squaring himself to the puck carrier)</li>
                                 <li>Spreading out the body (spreading out to eliminate holes in stance)</li>
                             </ul>
-                            <a id="quickness"></a><h2>Quickness</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="quickness"></a><h2>Quickness</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             Quickness Rating:<br />
                             <input maxlength="2" className="shortInput" label="Quickness" variant="filled" value={this.state.quickness} onChange={(event) => this.handleChange(event, "quickness")} /><br /><br />
                             Quickness Comments:<br />
@@ -202,7 +204,7 @@ class GoalieEdit extends Component {
                                 <li>Post to post (quickness moving from post to post)</li>
                                 <li>Gathering loose pucks (quickness recovering loose pucks)</li>
                             </ul>
-                            <a id="reboundcontrol"></a><h2>Rebound Control</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="reboundcontrol"></a><h2>Rebound Control</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             Rebound Control Rating:<br />
                             <input maxlength="2" className="shortInput" label="Rebound Control" variant="filled" value={this.state.rebound_control} onChange={(event) => this.handleChange(event, "rebound_control")} /><br /><br />
                             Rebound Control Comments:<br />
@@ -213,7 +215,7 @@ class GoalieEdit extends Component {
                                 <li>Rebounds high shots (trapping the puck with body to eliminate rebounds)</li>
                                 <li>Blocker control (directing the puck out of danger effectively with blocker hand)</li>
                             </ul>
-                            <a id="gcompetitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="gcompetitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             Competitiveness Rating:<br />
                             <input maxlength="2" className="shortInput" label="Competitiveness" variant="filled" value={this.state.competitiveness} onChange={(event) => this.handleChange(event, "competitiveness")} /><br /><br />
                             Competitiveness Comments:<br />
@@ -226,7 +228,7 @@ class GoalieEdit extends Component {
                                 <li>Holding ground (strength at holding ground with traffic in front and players cutting to the net)</li>
                                 <li>Communication (how well he communicates with his teammates/defense)</li>
                             </ul>
-                            <a id="skills"></a><h2>Skills</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="skills"></a><h2>Skills</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             Skills Rating:<br />
                             <input maxlength="2" className="shortInput" label="Skills" variant="filled" value={this.state.skills} onChange={(event) => this.handleChange(event, "skills")} /><br /><br />
                             Skills Comments:<br />
@@ -246,7 +248,7 @@ class GoalieEdit extends Component {
                                 <li>Breakaways (performance on breakaways, penalty shots, and/or shootout attempts)</li>
                                 <li>Flexibility (overall flexibility)</li>
                             </ul>
-                            <a id="gpsych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#gtop">Top of Page</a><br/><br/>
+                            <a id="gpsych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#gtop">Top of Page</a><br /><br />
                             Psychological Factors Rating:<br />
                             <input maxlength="2" className="shortInput" label="Psychological" variant="filled" value={this.state.psych} onChange={(event) => this.handleChange(event, "psych")} /><br /><br />
                             Psychological Factors Comments:<br />
@@ -259,7 +261,7 @@ class GoalieEdit extends Component {
                                 <li>Consistency (consistency of play over the course of a game/season)</li>
                                 <li>Focus and concentration (how well he concentrates throughout the game)</li>
                             </ul>
-                            
+
                         </div>
                     )
                 })}

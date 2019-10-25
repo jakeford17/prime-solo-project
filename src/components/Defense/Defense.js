@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class Defense extends Component {
   componentDidMount() {
@@ -29,23 +30,23 @@ class Defense extends Component {
 
   handleDeleteAll = (id) => {
     swal({
-        title: "ARE YOU SURE?",
-        text: "This action will delete all defensemen from the database. Once deleted, these files cannot be recovered.",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
+      title: "ARE YOU SURE?",
+      text: "This action will delete all defensemen from the database. Once deleted, these files cannot be recovered.",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
     })
-        .then((willDelete) => {
-            if (willDelete) {
-              this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
-              swal("All defensemen deleted.", {
-                    icon: "success",
-                });
-                this.props.history.push(`/defense`);
-            } else {
-                swal("Defensemen not deleted.");
-            }
-        });
+      .then((willDelete) => {
+        if (willDelete) {
+          this.props.dispatch({ type: 'DELETE_ALL_DEFENSE', payload: id });
+          swal("All defensemen deleted.", {
+            icon: "success",
+          });
+          this.props.history.push(`/defense`);
+        } else {
+          swal("Defensemen not deleted.");
+        }
+      });
   }
 
   render() {
@@ -86,6 +87,7 @@ class Defense extends Component {
       <>
         <h1>DEFENSEMEN</h1>
         <div>
+          <ScrollToTopOnMount />
           <table className="positionTable">
             <thead className="positionTableHeader">
               <tr className="positiontr">

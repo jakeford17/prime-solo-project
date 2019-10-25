@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
+
 
 class DefenseEdit extends Component {
     state = {
@@ -130,6 +132,7 @@ class DefenseEdit extends Component {
     render() {
         return (
             <div>
+                <ScrollToTopOnMount />
                 {this.props.defenseProfile.map((oneDefense) => {
                     return (
                         <div key={oneDefense.id}>
