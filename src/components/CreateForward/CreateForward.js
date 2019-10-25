@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
+import swal from 'sweetalert';
 
 class CreateForward extends Component {
     state = {
@@ -189,12 +190,21 @@ class CreateForward extends Component {
         })
     }
 
-    backClick = () => {
-        if (window.confirm("Are you sure want to go back? You will lose all unsaved data.")) {
-            this.props.history.push(`/home`)
-        } else {
-            console.log("Canceled Back action");
-        }
+    backClick = (id) => {
+        swal({
+            title: "Are you sure?",
+            text: "If you go back without saving, your new profile will be lost.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.history.push(`/home`)
+                } else {
+                    return;
+                }
+            });
     }
 
     submitClick = (event) => {
