@@ -12,6 +12,10 @@ class Defense extends Component {
     this.getDefense()
   }
 
+  componentDidUpdate(){
+    this.props.dispatch({ type: 'GET_DEFENSE' });
+  }
+
   getDefense() {
     this.props.dispatch({ type: 'GET_DEFENSE' });
   }
@@ -92,7 +96,7 @@ class Defense extends Component {
     })
     return (
       <>
-        <h1>DEFENSEMEN</h1>
+        <h1 className="positionHeader">DEFENSEMEN</h1>
         <div>
           <ScrollToTopOnMount />
           <table className="positionTable">

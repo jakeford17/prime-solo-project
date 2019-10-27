@@ -202,15 +202,19 @@ class CreateGoalie extends Component {
 
     submitClick = (event) => {
         event.preventDefault();
-        console.log('From comments: ', this.state);
         this.props.dispatch({ type: 'POST_NEW_GOALIE', payload: this.state });
+        swal({
+            title: "Player created.",
+            text: "Your new goaltender saved to the database!",
+            icon: "success",
+        });
         this.props.history.push(`/home`);
     }
 
     render() {
         return (
             <div>
-                <h1>Create Goaltender</h1>
+                <h1 className="positionHeader">Create Goaltender</h1>
                 <Tabs>
                     <TabList>
                         <Tab>Basic Info</Tab>
@@ -223,28 +227,28 @@ class CreateGoalie extends Component {
                         <Tab>Submit</Tab>
                     </TabList>
                     <TabPanel>
-                        <h2>Basic Information</h2><br />
+                        <h2 className="positionHeader">Basic Information</h2><br />
                         <label>First Name:</label><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
                         <label>Catches:</label><br /><input className="shortInput" maxlength="1" onChange={this.catchesChange} value={this.state.catches} /><br />
                         <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
-                        <label>DOB (MM/DD/YY):</label><br /><input className="shortInput" maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
+                        <label>DOB (MM/DD/YY):</label><br /><input maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
                         <label>Height:</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight:</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
-                        <label>Where Does He Play?</label><br />
+                        <label>Where Does He Play?</label><br /><br />
                             <input className="radioInput" type="radio" name="where" value="Top of Crease" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Top of Crease"} /> Top of Crease
                             <input className="radioInput" type="radio" name="where" value="Mostly in Paint" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Mostly in Paint"} /> Mostly in Paint
                         <br /><br />
-                        <label>What Style Does He Play?</label><br />
+                        <label>What Style Does He Play?</label><br /><br />
                             <input className="radioInput" type="radio" name="style" value="Quick Reaction" onChange={(event) => this.styleChange(event)} checked={this.state.style === "Quick Reaction"} /> Quick Reaction
                             <input className="radioInput" type="radio" name="style" value="Positional Angle" onChange={(event) => this.styleChange(event)} checked={this.state.style === "Positional Angle"} /> Positional Angle
                         <br /><br />
-                        <label>Crease Personality:</label><br />
+                        <label>Crease Personality:</label><br /><br />
                             <input className="radioInput" type="radio" name="personality" value="Aggressive/Intense" onChange={(event) => this.personalityChange(event)} checked={this.state.personality === "Aggressive/Intense"} /> Aggressive/Intense
                             <input className="radioInput" type="radio" name="personality" value="Calm/Laid Back" onChange={(event) => this.personalityChange(event)} checked={this.state.personality === "Calm/Laid Back"} /> Calm/Laid Back
                         <br /><br />
-                        <label>Expected Round:</label><br />
+                        <label>Expected Round:</label><br /><br />
                         <input className="radioInput" type="radio" name="round" value="1" onChange={(event) => this.roundChange(event)} checked={this.state.round === "1"} /> 1
                             <input className="radioInput" type="radio" name="round" value="2" onChange={(event) => this.roundChange(event)} checked={this.state.round === "2"} /> 2
                             <input className="radioInput" type="radio" name="round" value="3" onChange={(event) => this.roundChange(event)} checked={this.state.round === "3"} /> 3
@@ -256,7 +260,7 @@ class CreateGoalie extends Component {
                         <label>EliteProspects Page URL:</label><br /><input className="superLongInput" onChange={this.epChange} value={this.state.epurl} /><br />
                     </TabPanel>
                     <TabPanel>
-                        <h2>Net Coverage</h2>
+                        <h2 className="positionHeader">Net Coverage</h2>
                         <div>
                             <label>Net Coverage Grade:</label>
                             <input className="radioInput" type="radio" name="net_coverage" value="1" onChange={(event) => this.netCovChange(event)} checked={this.state.net_coverage === "1"} /> 1
@@ -271,7 +275,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="net_coverage" value="10" onChange={(event) => this.netCovChange(event)} checked={this.state.net_coverage === "10"} /> 10<br /><br />
                             <label>Net Coverage Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.netCovComChange} value={this.state.nc_comments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Angles initial setup (how well he covers angles on initial shots)</li>
                                 <li>Lateral angle coverage (how good his angles are after moving laterally</li>
@@ -284,7 +288,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Quickness</h2>
+                        <h2 className="positionHeader">Quickness</h2>
                         <div>
                             <label>Quickness Grade:</label>
                             <input className="radioInput" type="radio" name="quickness" value="1" onChange={(event) => this.quicknessChange(event)} checked={this.state.quickness === "1"} /> 1
@@ -299,7 +303,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="quickness" value="10" onChange={(event) => this.quicknessChange(event)} checked={this.state.quickness === "10"} /> 10<br /><br />
                             <label>Quickness Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.quicknessComChange} value={this.state.quickness_comments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Recovery (how fast he recovers to his feet for a rebound attempt)</li>
                                 <li>Glove hand (quickness of glove hand)</li>
@@ -312,7 +316,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Rebound Control</h2>
+                        <h2 className="positionHeader">Rebound Control</h2>
                         <div>
                             <label>Rebound Control Grade:</label>
                             <input className="radioInput" type="radio" name="rebound_control" value="1" onChange={(event) => this.reboundChange(event)} checked={this.state.rebound_control === "1"} /> 1
@@ -327,7 +331,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="rebound_control" value="10" onChange={(event) => this.reboundChange(event)} checked={this.state.rebound_control === "10"} /> 10<br /><br />
                             <label>Rebound Control Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.reboundComChange} value={this.state.rc_comments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Rebounds low shots (directing the puck out of danger with stick and pads on low shots)</li>
                                 <li>Rebounds high shots (trapping the puck with body to eliminate rebounds)</li>
@@ -336,7 +340,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Competitiveness</h2>
+                        <h2 className="positionHeader">Competitiveness</h2>
                         <div>
                             <label>Competitiveness Grade:</label>
                             <input className="radioInput" type="radio" name="competitive" value="1" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "1"} /> 1
@@ -351,7 +355,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="competitive" value="10" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "10"} /> 10<br /><br />
                             <label>Competitiveness Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.compComChange} value={this.state.comp_comments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Drive and determination (how much drive and determination he shows)</li>
                                 <li>Challenging shooters (how well he moves out to challenge shooters)</li>
@@ -362,7 +366,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Skills</h2>
+                        <h2 className="positionHeader">Skills</h2>
                         <div>
                             <label>Skills Grade:</label>
                             <input className="radioInput" type="radio" name="skills" value="1" onChange={(event) => this.skillsChange(event)} checked={this.state.skills === "1"} /> 1
@@ -377,7 +381,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="skills" value="10" onChange={(event) => this.skillsChange(event)} checked={this.state.skills === "10"} /> 10<br /><br />
                             <label>Skills Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.skillsComChange} value={this.state.skills_comments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Reading the play (how well he reads what is developing in front of him)</li>
                                 <li>Skating ability (overall skating ability)</li>
@@ -395,7 +399,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Psychological Factors</h2>
+                        <h2 className="positionHeader">Psychological Factors</h2>
                         <div>
                             <label>Psychological Factors Grade:</label>
                             <input className="radioInput" type="radio" name="psychological" value="1" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "1"} /> 1
@@ -410,7 +414,7 @@ class CreateGoalie extends Component {
                             <input className="radioInput" type="radio" name="psychological" value="10" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "10"} /> 10<br /><br />
                             <label>Psychological Factors Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.psychComChange} value={this.state.psychComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Confidence (how well he shows confidence while playing)</li>
                                 <li>Bouncing back (how he responds after a bad goal or bad game)</li>
@@ -421,7 +425,7 @@ class CreateGoalie extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Submit</h2>
+                        <h2 className="positionHeader">Submit</h2>
                         <p>Be sure to review your information before submitting your evaluation. If you need to change something after submitting, go to the player's profile page and click "Edit".</p>
                         <button className="mainButton" onClick={this.submitClick}>SUBMIT EVALUATION</button>
                     </TabPanel>

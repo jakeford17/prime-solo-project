@@ -26,7 +26,7 @@ class Home extends Component {
     return (
       <div>
         <div>
-          <h1>Welcome, {this.props.user.username}!</h1>
+          <h1 className="positionHeader">Welcome, {this.props.user.username}!</h1>
           <p>
             Welcome to Hockey Prospect DB, a site used to help track NHL prospects for next June's NHL Entry Draft!
           </p>

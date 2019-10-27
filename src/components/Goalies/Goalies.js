@@ -90,7 +90,7 @@ class Goalies extends Component {
     })
     return (
       <>
-        <h1>GOALTENDERS</h1>
+        <h1 className="positionHeader">GOALTENDERS</h1>
         <div>
           <ScrollToTopOnMount />
           <table className="positionTable">

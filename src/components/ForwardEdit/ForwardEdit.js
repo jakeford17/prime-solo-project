@@ -96,7 +96,7 @@ class ForwardEdit extends Component {
             });
     }
 
-    handleSave = (id) => {
+    handleSave = () => {
         this.props.dispatch({ type: 'UPDATE_FORWARD', payload: this.state });
         this.setState({
             state: this.state
@@ -141,12 +141,12 @@ class ForwardEdit extends Component {
     render() {
         return (
             <div>
-                <ScrollToTopOnMount/>
+                <ScrollToTopOnMount />
                 {this.props.forwardProfile.map((oneForward) => {
                     return (
                         <div key={oneForward.id}>
-                            <a id="top"></a><h1>Edit Profile: {oneForward.fname} {oneForward.lname}</h1>
-                            <h2>Page Navigation</h2>
+                            <a id="top"></a><h1 className="positionHeader">Edit Profile: {oneForward.fname} {oneForward.lname}</h1>
+                            <h2 className="positionHeader">Page Navigation</h2>
                             <ul className="edit-nav">
                                 <li className="edit-nav-li"><a href="#top">Top of Page</a></li>
                                 <li className="edit-nav-li"><a href="#basic">Basic Info</a></li>
@@ -158,37 +158,37 @@ class ForwardEdit extends Component {
                                 <li className="edit-nav-li"><a href="#defensive">Defensive</a></li>
                                 <li className="edit-nav-li"><a href="#psych">Psychological Factors</a></li>
                             </ul>
-                            <a id="basic"></a><h2>Basic Info</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="basic"></a><h2 className="positionHeader">Basic Info</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             First Name:<br />
-                            <input className="longInput" label="First Name" variant="filled" value={this.state.fname} onChange={(event) => this.handleChange(event, "fname")} /><br /><br />
+                            <input className="longInput" label="First Name" variant="filled" value={this.state.fname} onChange={(event) => this.handleChange(event, "fname")} /><br />
                             Last Name:<br />
-                            <input className="longInput" label="Last Name" variant="filled" value={this.state.lname} onChange={(event) => this.handleChange(event, "lname")} /><br /><br />
+                            <input className="longInput" label="Last Name" variant="filled" value={this.state.lname} onChange={(event) => this.handleChange(event, "lname")} /><br />
                             DOB (MM/DD/YY):<br />
-                            <input label="DOB" maxlength="8" variant="filled" value={this.state.dob} onChange={(event) => this.handleChange(event, "dob")} /><br /><br />
+                            <input label="DOB" maxlength="8" variant="filled" value={this.state.dob} onChange={(event) => this.handleChange(event, "dob")} /><br />
                             Position(s):<br />
-                            <input label="Position" variant="filled" value={this.state.position} onChange={(event) => this.handleChange(event, "position")} /><br /><br />
+                            <input label="Position" variant="filled" value={this.state.position} onChange={(event) => this.handleChange(event, "position")} /><br />
                             Shoots:<br />
-                            <input maxlength="1" className="shortInput" label="Shoots" variant="filled" value={this.state.shoots} onChange={(event) => this.handleChange(event, "shoots")} /><br /><br />
+                            <input maxlength="1" className="shortInput" label="Shoots" variant="filled" value={this.state.shoots} onChange={(event) => this.handleChange(event, "shoots")} /><br />
                             Team:<br />
-                            <input label="Team" variant="filled" value={this.state.team} onChange={(event) => this.handleChange(event, "team")} /><br /><br />
+                            <input label="Team" variant="filled" value={this.state.team} onChange={(event) => this.handleChange(event, "team")} /><br />
                             League:<br />
-                            <input label="League" variant="filled" value={this.state.league} onChange={(event) => this.handleChange(event, "league")} /><br /><br />
+                            <input label="League" variant="filled" value={this.state.league} onChange={(event) => this.handleChange(event, "league")} /><br />
                             Height:<br />
-                            <input maxlength="4" className="shortInput" label="Height" variant="filled" value={this.state.height} onChange={(event) => this.handleChange(event, "height")} /><br /><br />
+                            <input maxlength="4" className="shortInput" label="Height" variant="filled" value={this.state.height} onChange={(event) => this.handleChange(event, "height")} /><br />
                             Weight:<br />
-                            <input maxlength="3" className="shortInput" label="Weight" variant="filled" value={this.state.weight} onChange={(event) => this.handleChange(event, "weight")} /><br /><br />
+                            <input maxlength="3" className="shortInput" label="Weight" variant="filled" value={this.state.weight} onChange={(event) => this.handleChange(event, "weight")} /><br />
                             Player Type:<br />
-                            <input label="Player Type" variant="filled" value={this.state.player_type} onChange={(event) => this.handleChange(event, "player_type")} /><br /><br />
+                            <input label="Player Type" variant="filled" value={this.state.player_type} onChange={(event) => this.handleChange(event, "player_type")} /><br />
                             Expected Draft Round:<br />
-                            <input maxlength="9" className="shortInput" label="Round" variant="filled" value={this.state.round} onChange={(event) => this.handleChange(event, "round")} /><br /><br />
+                            <input maxlength="9" className="shortInput" label="Round" variant="filled" value={this.state.round} onChange={(event) => this.handleChange(event, "round")} /><br />
                             EliteProspects URL:<br />
-                            <input className="superLongInput" label="EliteProspects" variant="filled" value={this.state.epurl} onChange={(event) => this.handleChange(event, "epurl")} /><br /><br />
-                            <h2>Skating</h2>&nbsp;<a href="#top">Top of Page</a><a id="skating"></a><br /><br />
+                            <input className="superLongInput" label="EliteProspects" variant="filled" value={this.state.epurl} onChange={(event) => this.handleChange(event, "epurl")} /><br />
+                            <h2 className="positionHeader">Skating</h2>&nbsp;<a href="#top">Top of Page</a><a id="skating"></a><br /><br />
                             Skating Rating:<br />
                             <input maxlength="2" className="shortInput" label="Skating" variant="filled" value={this.state.skating} onChange={(event) => this.handleChange(event, "skating")} /><br /><br />
                             Skating Comments:<br />
                             <textarea className="categoryComment" label="Skating Comments" variant="filled" value={this.state.skating_comments} onChange={(event) => this.handleChange(event, "skating_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
                                 <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
@@ -196,12 +196,12 @@ class ForwardEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="puckskills"></a><h2>Puck Skills</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="puckskills"></a><h2 className="positionHeader">Puck Skills</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Puck Skills Rating:<br />
                             <input maxlength="2" className="shortInput" label="Puck Skills" variant="filled" value={this.state.puck_skills} onChange={(event) => this.handleChange(event, "puck_skills")} /><br /><br />
                             Puck Skills Comments:<br />
                             <textarea className="categoryComment" label="Puck Skills Comments" variant="filled" value={this.state.puck_skills_comments} onChange={(event) => this.handleChange(event, "puck_skills_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
                                 <li>Shot strength (does he have a heavy shot?)</li>
@@ -214,12 +214,12 @@ class ForwardEdit extends Component {
                                 <li>Receiving a pass (gets puck under control quickly; can receive on forehand, backhand, and in skates)</li>
                                 <li>Scoring touch (can score in several ways; smart around the net/has a nose for the net)</li>
                             </ul>
-                            <a id="competitiveness"></a><h2>Competitiveness</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="competitiveness"></a><h2 className="positionHeader">Competitiveness</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Competitiveness Rating:<br />
                             <input maxlength="2" className="shortInput" label="Competitiveness" variant="filled" value={this.state.competitiveness} onChange={(event) => this.handleChange(event, "competitiveness")} /><br /><br />
                             Competitiveness Comments:<br />
                             <textarea className="categoryComment" label="Competitiveness Comments" variant="filled" value={this.state.comp_comments} onChange={(event) => this.handleChange(event, "comp_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
                                 <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
@@ -227,12 +227,12 @@ class ForwardEdit extends Component {
                                 <li>Consistency (how consistent is his play over the course of a game/season, no matter the circumstances)</li>
                                 <li>Forechecking (puck pursuit; fights through checks)</li>
                             </ul>
-                            <a id="physical"></a><h2>Physicality</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="physical"></a><h2 className="positionHeader">Physicality</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Physicality Rating:<br />
                             <input maxlength="2" className="shortInput" label="Physicality" variant="filled" value={this.state.physicality} onChange={(event) => this.handleChange(event, "physicality")} /><br /><br />
                             Physicality Comments:<br />
                             <textarea className="categoryComment" label="Physicality Comments" variant="filled" value={this.state.phys_comments} onChange={(event) => this.handleChange(event, "phys_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
                                 <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
@@ -240,12 +240,12 @@ class ForwardEdit extends Component {
                                 <li>Hitting (takes the body and effectively separates opposition from the puck; willing to take a hit to make a play)</li>
                                 <li>Fighting (willing to fight and is capable)</li>
                             </ul>
-                            <a id="hockeyiq"></a><h2>Hockey Sense</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="hockeyiq"></a><h2 className="positionHeader">Hockey Sense</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Hockey Sense Rating:<br />
                             <input maxlength="2" className="shortInput" label="IQ" variant="filled" value={this.state.iq} onChange={(event) => this.handleChange(event, "iq")} /><br /><br />
                             Hockey Sense Comments:<br />
                             <textarea className="categoryComment" label="IQ Comments" variant="filled" value={this.state.iq_comments} onChange={(event) => this.handleChange(event, "iq_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
                                 <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
@@ -254,24 +254,24 @@ class ForwardEdit extends Component {
                                 <li>Play under pressure (good decision making when being pressured/forechecked)</li>
                                 <li>Versatility (ability to play various positions, roles, special teams)</li>
                             </ul>
-                            <a id="defensive"></a><h2>Defensive Play</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="defensive"></a><h2 className="positionHeader">Defensive Play</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Defensive Play Rating:<br />
                             <input maxlength="2" className="shortInput" label="Defense" variant="filled" value={this.state.defense} onChange={(event) => this.handleChange(event, "defense")} /><br /><br />
                             Defensive Play Comments:<br />
                             <textarea className="categoryComment" label="Defense Comments" variant="filled" value={this.state.def_comments} onChange={(event) => this.handleChange(event, "def_comments")} /><br /><br />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Defensive anticipation (reads the play, gap control)</li>
                                 <li>Positioning (angles opponents, active away from the puck)</li>
                                 <li>Backchecking (picks up man, returns hard to the defensive zone)</li>
                                 <li>Defensive reliability (is he used in critical situations?)</li>
                             </ul>
-                            <a id="psych"></a><h2>Psychological Factors</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
+                            <a id="psych"></a><h2 className="positionHeader">Psychological Factors</h2>&nbsp;<a href="#top">Top of Page</a><br /><br />
                             Psychological Factors Rating:<br />
                             <input maxlength="2" className="shortInput" label="Psychological" variant="filled" value={this.state.psych} onChange={(event) => this.handleChange(event, "psych")} /><br /><br />
                             Psychological Factors Comments:<br />
                             <textarea className="categoryComment" label="Psychological Comments" variant="filled" value={this.state.psych_comments} onChange={(event) => this.handleChange(event, "psych_comments")} />
-                            <h4>What to Watch:</h4>
+                            <h4 className="w2w4">What to Watch:</h4>
                             <ul>
                                 <li>Leadership (takes charge, displays on-ice leadership)</li>
                                 <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>

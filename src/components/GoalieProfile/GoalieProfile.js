@@ -16,7 +16,7 @@ class GoalieProfile extends Component {
     }
 
     componentDidUpdate() {
-        this.getGoalieInfo();
+        this.props.dispatch({ type: 'GET_ONE_GOALIE', payload: this.props.match.params.id })
     }
 
     getGoalieInfo = () => {
@@ -35,7 +35,7 @@ class GoalieProfile extends Component {
                 {this.props.goalieProfile.map((oneGoalie) => {
                     return (
                         <div key={oneGoalie.id}>
-                            <h1>{oneGoalie.fname} {oneGoalie.lname}</h1>
+                            <h1 className="positionHeader">{oneGoalie.fname} {oneGoalie.lname}</h1>
                             <table>
                                 <tbody>
                                     <tr>
@@ -125,12 +125,12 @@ class GoalieProfile extends Component {
                                     </tr>
                                 </tbody>
                             </table>
-                            <h2>EVALUATION</h2>
+                            <h2 className="positionHeader">EVALUATION</h2>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>NET COVERAGE</h3>
+                                            <h3 className="positionHeader">NET COVERAGE</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -151,7 +151,7 @@ class GoalieProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>QUICKNESS</h3>
+                                            <h3 className="positionHeader">QUICKNESS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -172,7 +172,7 @@ class GoalieProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>REBOUND CONTROL</h3>
+                                            <h3 className="positionHeader">REBOUND CONTROL</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -193,7 +193,7 @@ class GoalieProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>COMPETITIVENESS</h3>
+                                            <h3 className="positionHeader">COMPETITIVENESS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -214,7 +214,7 @@ class GoalieProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>SKILLS</h3>
+                                            <h3 className="positionHeader">SKILLS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -235,7 +235,7 @@ class GoalieProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>PSYCHOLOGICAL FACTORS</h3>
+                                            <h3 className="positionHeader">PSYCHOLOGICAL FACTORS</h3>
                                         </td>
                                     </tr>
                                     <tr>

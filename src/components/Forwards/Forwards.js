@@ -6,10 +6,45 @@ import { Icon } from '@iconify/react';
 import hockeyPuck from '@iconify/icons-mdi/hockey-puck';
 import swal from 'sweetalert';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
+// import { Table, } from 'semantic-ui-react';
+// import _ from 'lodash';
+
+// const colors = [
+//   'black',
+// ]
 
 class Forwards extends Component {
+  // state = {
+  //   column: null,
+  //   data: this.props.forwards,
+  //   direction: null,
+  // }
+
+  // handleSort = (clickedColumn) => () => {
+  //   const { column, data, direction } = this.state
+
+  //   if (column !== clickedColumn) {
+  //     this.setState({
+  //       column: clickedColumn,
+  //       data: _.sortBy(data, [clickedColumn]),
+  //       direction: 'ascending',
+  //     })
+
+  //     return
+  //   }
+
+  //   this.setState({
+  //     data: data.reverse(),
+  //     direction: direction === 'ascending' ? 'descending' : 'ascending',
+  //   })
+  // }
+
   componentDidMount() {
     this.getForwards()
+  }
+
+  componentDidUpdate(){
+    this.props.dispatch({ type: 'GET_FORWARDS' });
   }
 
   getForwards() {
@@ -50,6 +85,8 @@ class Forwards extends Component {
   }
 
   render() {
+    // const { column, data, direction } = this.state
+
     let deleteButton
     if (this.props.user.admin === 1) {
       deleteButton = <button className="mainButton" onClick={() => this.handleDeleteAll(this.props.match.params.id)}>DELETE ALL FORWARDS</button>
@@ -92,7 +129,83 @@ class Forwards extends Component {
     })
     return (
       <>
-        <h1>FORWARDS</h1>
+      {/*<ScrollToTopOnMount/>
+       <h1 className="positionHeader">FORWARDS</h1>
+      <Table celled selectable color={colors} key={colors} inverted>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell
+                sorted={column === 'profile' ? direction : null}
+              >
+                Profile
+            </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'fname' ? direction : null}
+                onClick={this.handleSort('fname')}
+              >
+                First Name
+            </Table.HeaderCell>
+            <Table.HeaderCell
+                sorted={column === 'lname' ? direction : null}
+                onClick={this.handleSort('lname')}
+              >
+                Last Name
+            </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'team' ? direction : null}
+                onClick={this.handleSort('team')}
+              >
+                Team
+            </Table.HeaderCell>
+              <Table.HeaderCell
+                sorted={column === 'league' ? direction : null}
+                onClick={this.handleSort('league')}
+              >
+                League
+            </Table.HeaderCell>
+            <Table.HeaderCell
+                sorted={column === 'dob' ? direction : null}
+                onClick={this.handleSort('dob')}
+              >
+                DOB
+            </Table.HeaderCell>
+            <Table.HeaderCell
+                sorted={column === 'height' ? direction : null}
+              >
+                Height
+            </Table.HeaderCell>
+            <Table.HeaderCell
+                sorted={column === 'weight' ? direction : null}
+              >
+                Weight
+            </Table.HeaderCell>
+            <Table.HeaderCell
+                sorted={column === 'round' ? direction : null}
+                onClick={this.handleSort('dob')}
+              >
+                Exp. Round
+            </Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+          <Table.Body>
+            {_.map(data, ({ id, fname, lname, team, league, dob, height, weight, round }) => (
+              <Table.Row key={round}>
+                <Table.Cell> <button className="profileButton" onClick={() => this.forwardProfile(id)}><Icon icon={hockeyPuck} /></button></Table.Cell>
+                <Table.Cell>{fname}</Table.Cell>
+                <Table.Cell>{lname}</Table.Cell>
+                <Table.Cell>{team}</Table.Cell>
+                <Table.Cell>{league}</Table.Cell>
+                <Table.Cell><Moment format="MM/DD/YY">{dob}</Moment></Table.Cell>
+                <Table.Cell>{height}</Table.Cell>
+                <Table.Cell>{weight}</Table.Cell>
+                <Table.Cell>{round}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+        {deleteButton} */}
+        <h1 className="positionHeader">FORWARDS</h1>
         <div>
           <ScrollToTopOnMount />
           <table className="positionTable">

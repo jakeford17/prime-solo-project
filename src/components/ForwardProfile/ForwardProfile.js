@@ -15,7 +15,7 @@ class ForwardProfile extends Component {
     }
 
     componentDidUpdate() {
-        this.getForwardInfo();
+        this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id })
     }
 
     getForwardInfo = () => {
@@ -34,7 +34,7 @@ class ForwardProfile extends Component {
                 {this.props.forwardProfile.map((oneForward) => {
                     return (
                         <div key={oneForward.id}>
-                            <h1>{oneForward.fname} {oneForward.lname}</h1>
+                            <h1 className="positionHeader">{oneForward.fname} {oneForward.lname}</h1>
                             <table>
                                 <tbody>
                                     <tr>
@@ -116,12 +116,12 @@ class ForwardProfile extends Component {
                                     </tr>
                                 </tbody>
                             </table>
-                            <h2>EVALUATION</h2>
+                            <h2 className="positionHeader">EVALUATION</h2>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>SKATING</h3>
+                                            <h3 className="positionHeader">SKATING</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -142,7 +142,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>PUCK SKILLS</h3>
+                                            <h3 className="positionHeader">PUCK SKILLS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -163,7 +163,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>COMPETITIVENESS</h3>
+                                            <h3 className="positionHeader">COMPETITIVENESS</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,7 +184,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>PHYSICALITY</h3>
+                                            <h3 className="positionHeader">PHYSICALITY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -205,7 +205,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>HOCKEY SENSE</h3>
+                                            <h3 className="positionHeader">HOCKEY SENSE</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -226,7 +226,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>DEFENSIVE PLAY</h3>
+                                            <h3 className="positionHeader">DEFENSIVE PLAY</h3>
                                         </td>
                                     </tr>
                                     <tr>
@@ -247,7 +247,7 @@ class ForwardProfile extends Component {
                                     </tr>
                                     <tr>
                                         <td colSpan="2">
-                                            <h3>PSYCHOLOGICAL FACTORS</h3>
+                                            <h3 className="positionHeader">PSYCHOLOGICAL FACTORS</h3>
                                         </td>
                                     </tr>
                                     <tr>

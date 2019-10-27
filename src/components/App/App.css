@@ -1,18 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
-body {
-    margin: 0px;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Permanent Marker', cursive;
-}
-
 .alert {
     color: #ff4545;
     margin: 50px;
     font-size: 2em;
+}
+
+body {
+    margin: 0px;
 }
 
 .categoryComment {
@@ -20,49 +16,23 @@ h1, h2, h3, h4 {
     padding: 0 0 200px 0;
 }
 
-.createHeader {
-    margin: auto;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.createSpan {
-    margin: auto;
-    text-align: center;
-}
-
-.epRow{
-    padding-top: 100px;
-    vertical-align: middle;
-}
-
-.mainButton {
-    font-family: 'Permanent Marker', cursive;
-    display: block;
-    font-size: 1.1em;
-    margin: auto;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    width: 300px;
-    border-radius: 3.5%;
-}
-
-.mainButton:hover {
-    cursor: pointer;
-    width: 300px;
-    background-color: white;
-    color: black;
-    text-decoration: none;
-}
-
 .content {
     width: 85%;
     margin: auto;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.25em;
+}
+
+.createHeader {
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.createSpan {
+    margin: auto;
+    text-align: center;
 }
 
 .edit-nav{
@@ -89,6 +59,11 @@ h1, h2, h3, h4 {
     color: white;
 }
 
+.epRow{
+    padding-top: 100px;
+    vertical-align: middle;
+}
+
 form {
     background-color: #dbd5d5;
     width: 30%;
@@ -96,6 +71,11 @@ form {
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Permanent Marker', cursive;
 }
 
 .hiddenButton{
@@ -144,8 +124,36 @@ input {
     width: 250px;
 }
 
-.shortInput{
-    width: 65px;
+.mainButton {
+    font-family: 'Permanent Marker', cursive;
+    display: block;
+    font-size: 1.1em;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    width: 300px;
+    border-radius: 3.5%;
+}
+
+.mainButton:hover {
+    cursor: pointer;
+    width: 300px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
+
+/* .nav-title{
+    font-family: 'Permanent Marker', cursive;
+    padding-top: 20px;
+} */
+
+.positionHeader{
+    font-family: 'Permanent Marker', cursive;
+    /* padding-top: 10px; */
 }
 
 .profileButton{
@@ -161,15 +169,6 @@ input {
     cursor: pointer;
     background-color: black;
     color: white;
-}
-
-.radioInput{
-    display: inline;
-    margin-left: 15px;
-}
-
-.superLongInput{
-    width: 450px;
 }
 
 .positionTableHeader{
@@ -209,4 +208,22 @@ input {
 
 .positiontr:hover{
     background-color: lightgray;
+}
+
+.radioInput{
+    display: inline;
+    margin-left: 15px;
+}
+
+.shortInput{
+    width: 65px;
+}
+
+.superLongInput{
+    width: 450px;
+}
+
+.w2w4{
+    font-family: 'Permanent Marker', cursive;
+    margin-top: 0;
 }

@@ -12,14 +12,16 @@
   overflow: hidden;
   background-image: url(https://static8.depositphotos.com/1263295/801/i/950/depositphotos_8017382-stock-photo-ice-rink-background.jpg) !important;
   font-family: 'Permanent Marker', cursive;
+  height: 85px;
 }
 
 .nav-link {
+  height: 85px;
   float: left;
   color: #f2f2f2;
   background-color: black;
   text-align: center;
-  padding: 30px 30px;
+  padding: 30px 20px;
   text-decoration: none;
   font-size: 15px;
   font-family: 'Permanent Marker', cursive;

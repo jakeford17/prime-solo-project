@@ -207,7 +207,7 @@ class CreateForward extends Component {
             skating: '8',
             skatingComments: 'Powerful stride that allows him to accelerate to top speed and create distinct separation from chasing opponents...Incredibly agile for his size and can evade pressure or create space without solely relying on his big frame and long reach',
             puckSkills: '9',
-            puckSkillsComments: 'Crafy with the puck...hard and accurate shot',
+            puckSkillsComments: 'Crafty with the puck...hard and accurate shot',
             competitiveness: '8',
             compComments: 'Good attituide and consistent level of play no matter the situation...generally, could be more consistent on the forecheck',
             physical: '10',
@@ -240,15 +240,19 @@ class CreateForward extends Component {
 
     submitClick = (event) => {
         event.preventDefault();
-        console.log('From comments: ', this.state);
         this.props.dispatch({ type: 'POST_NEW_FORWARD', payload: this.state });
+        swal({
+            title: "Player created.",
+            text: "Your new forward saved to the database!",
+            icon: "success",
+        });
         this.props.history.push(`/home`);
     }
 
     render() {
         return (
             <div>
-                <h1>Create Forward</h1>
+                <h1 className="positionHeader">Create Forward</h1>
                 <Tabs>
                     <TabList>
                         <Tab>Basic Info</Tab>
@@ -262,14 +266,14 @@ class CreateForward extends Component {
                         <Tab>Submit</Tab>
                     </TabList>
                     <TabPanel>
-                        <h2>Basic Information</h2><br />
+                        <h2 className="positionHeader">Basic Information</h2><br />
                         <label>First Name:</label><button className="hiddenButton" onClick={() => this.hiddenButtonClick()}>FILL</button><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
                         <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
                         <label>Shoots:</label><br /><input className="shortInput" maxlength="1" onChange={this.shotChange} value={this.state.shoots} /><br />
                         <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
-                        <label>DOB (MM/DD/YY):</label><br /><input className="shortInput" maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
+                        <label>DOB (MM/DD/YY):</label><br /><input maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
                         <label>Height:</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight:</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Player Type:</label><br />
@@ -289,7 +293,7 @@ class CreateForward extends Component {
                         <label>EliteProspects Page URL:</label><br /><input className="superLongInput" onChange={this.epChange} value={this.state.epurl} /><br />
                     </TabPanel>
                     <TabPanel>
-                        <h2>Skating</h2>
+                        <h2 className="positionHeader">Skating</h2>
                         <div>
                             <label>Skating Grade:</label>
                             <input className="radioInput" type="radio" name="skating" value="1" onChange={(event) => this.skatingChange(event)} checked={this.state.skating === "1"} /> 1
@@ -304,7 +308,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="skating" value="10" onChange={(event) => this.skatingChange(event)} checked={this.state.skating === "10"} /> 10<br /><br />
                             <label>Skating Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.skatingComChange} value={this.state.skatingComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Acceleration (first few strides, ability to pull away from/catch other players)</li>
                                 <li>Speed (when in full stride)</li>
@@ -315,7 +319,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Puck Skills</h2>
+                        <h2 className="positionHeader">Puck Skills</h2>
                         <div>
                             <label>Puck Skills Grade:</label>
                             <input className="radioInput" type="radio" name="puckskills" value="1" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "1"} /> 1
@@ -330,7 +334,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="puckskills" value="10" onChange={(event) => this.puckSkillsChange(event)} checked={this.state.puckSkills === "10"} /> 10<br /><br />
                             <label>Puck Skills Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.puckSkillsComChange} value={this.state.puckSkillsComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Shot accuracy (does he hit the net/force the goalie to make saves?)</li>
                                 <li>Shot strength (does he have a heavy shot?)</li>
@@ -346,7 +350,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Competitiveness</h2>
+                        <h2 className="positionHeader">Competitiveness</h2>
                         <div>
                             <label>Competitiveness Grade:</label>
                             <input className="radioInput" type="radio" name="competitive" value="1" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "1"} /> 1
@@ -361,7 +365,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="competitive" value="10" onChange={(event) => this.competitivenessChange(event)} checked={this.state.competitiveness === "10"} /> 10<br /><br />
                             <label>Competitiveness Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.compComChange} value={this.state.compComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Scoring drive (willing to battle, go to the net, and pay the price to score)</li>
                                 <li>Work ethic (overall effort; works and competes every shift, no matter the score/venue</li>
@@ -372,7 +376,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Physical Play</h2>
+                        <h2 className="positionHeader">Physical Play</h2>
                         <div>
                             <label>Physical Play Grade:</label>
                             <input className="radioInput" type="radio" name="physical" value="1" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "1"} /> 1
@@ -387,7 +391,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="physical" value="10" onChange={(event) => this.physicalChange(event)} checked={this.state.physical === "10"} /> 10<br /><br />
                             <label>Physical Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.physicalComChange} value={this.state.physicalComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Boards and corner play (battles for loose pucks; willing to pay the price)</li>
                                 <li>Physical presence (size and strength are used as an asset; tough to play against)</li>
@@ -398,7 +402,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Hockey Sense</h2>
+                        <h2 className="positionHeader">Hockey Sense</h2>
                         <div>
                             <label>Hockey Sense Grade:</label>
                             <input className="radioInput" type="radio" name="iq" value="1" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "1"} /> 1
@@ -413,7 +417,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="iq" value="10" onChange={(event) => this.iqChange(event)} checked={this.state.hockeyIQ === "10"} /> 10<br /><br />
                             <label>Hockey Sense Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.iqComChange} value={this.state.hockeyIQComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Playmaking (vision, offensive imagination; sets teammates up for scoring chances)</li>
                                 <li>Anticipation (reads and reacts to the play; gets himself in position before the play develops; sees opening for transition play)</li>
@@ -425,7 +429,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Defensive Play</h2>
+                        <h2 className="positionHeader">Defensive Play</h2>
                         <div>
                             <label>Defensive Play Grade:</label>
                             <input className="radioInput" type="radio" name="defense" value="1" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "1"} /> 1
@@ -440,7 +444,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="defense" value="10" onChange={(event) => this.defenseChange(event)} checked={this.state.defense === "10"} /> 10<br /><br />
                             <label>Defensive Play Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.defenseComChange} value={this.state.defenseComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Defensive anticipation (reads the play, gap control)</li>
                                 <li>Positioning (angles opponents, active away from the puck)</li>
@@ -450,7 +454,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Psychological Factors</h2>
+                        <h2 className="positionHeader">Psychological Factors</h2>
                         <div>
                             <label>Psychological Factors Grade:</label>
                             <input className="radioInput" type="radio" name="psychological" value="1" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "1"} /> 1
@@ -465,7 +469,7 @@ class CreateForward extends Component {
                             <input className="radioInput" type="radio" name="psychological" value="10" onChange={(event) => this.psychChange(event)} checked={this.state.psych === "10"} /> 10<br /><br />
                             <label>Psychological Factors Comments:</label><br />
                             <textarea className="categoryComment" onChange={this.psychComChange} value={this.state.psychComments} />
-                            <h3>What to Watch:</h3>
+                            <h3 className="positionHeader">What to Watch:</h3>
                             <ul>
                                 <li>Leadership (takes charge, displays on-ice leadership)</li>
                                 <li>Communication (witnessed in-game examples of constructive discussions with teammates and coaches)</li>
@@ -474,7 +478,7 @@ class CreateForward extends Component {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <h2>Submit</h2>
+                        <h2 className="positionHeader">Submit</h2>
                         <p>Be sure to review your information before submitting your evaluation. If you need to change something after submitting, go to the player's profile page and click "Edit".</p>
                         <button className="mainButton" onClick={this.submitClick}>SUBMIT EVALUATION</button>
                     </TabPanel>

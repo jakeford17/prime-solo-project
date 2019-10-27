@@ -18,6 +18,7 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
+      this.props.history.push(`/home`);
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -41,10 +42,10 @@ class LoginPage extends Component {
           </h2>
         )}
         <form onSubmit={this.login}>
-          <h1>Login</h1>
+          <h1 className="positionHeader">Login</h1>
           <div>
             <label htmlFor="username">
-              Username:
+              Username:<br/>
               <input
                 type="text"
                 name="username"
@@ -55,7 +56,7 @@ class LoginPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
+              Password:<br/>
               <input
                 type="password"
                 name="password"
