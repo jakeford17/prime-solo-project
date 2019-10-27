@@ -190,6 +190,37 @@ class CreateForward extends Component {
         })
     }
 
+    hiddenButtonClick = (event) => {
+        this.setState({
+            fname: 'Quinton',
+            lname: 'Byfield',
+            position: 'C',
+            shoots: 'L',
+            team: 'Sudbury',
+            league: 'OHL',
+            dob: '08/19/02',
+            height: '6-4',
+            weight: '214',
+            epurl: 'https://www.eliteprospects.com/player/503020/quinton-byfield',
+            playerType: 'Power Forward',
+            round: '1',
+            skating: '8',
+            skatingComments: 'Powerful stride that allows him to accelerate to top speed and create distinct separation from chasing opponents...Incredibly agile for his size and can evade pressure or create space without solely relying on his big frame and long reach',
+            puckSkills: '9',
+            puckSkillsComments: 'Crafy with the puck...hard and accurate shot',
+            competitiveness: '8',
+            compComments: 'Good attituide and consistent level of play no matter the situation...generally, could be more consistent on the forecheck',
+            physical: '10',
+            physicalComments: 'Uses his big, heavy frame well when check and protecting puck',
+            hockeyIQ: '9',
+            hockeyIQComments: 'Great decision making and anticipation',
+            defense: '7',
+            defenseComments: 'Very responsible on defense and a reliable backchecker',
+            psych: '9',
+            psychComments: 'Good leadership skills...confidence allows him to play a big role on teams with older players',
+        })
+    }
+
     backClick = (id) => {
         swal({
             title: "Are you sure?",
@@ -232,7 +263,7 @@ class CreateForward extends Component {
                     </TabList>
                     <TabPanel>
                         <h2>Basic Information</h2><br />
-                        <label>First Name:</label><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
+                        <label>First Name:</label><button className="hiddenButton" onClick={() => this.hiddenButtonClick()}>FILL</button><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
                         <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
                         <label>Shoots:</label><br /><input className="shortInput" maxlength="1" onChange={this.shotChange} value={this.state.shoots} /><br />

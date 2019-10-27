@@ -98,6 +98,15 @@ form {
     border-radius: 2px;
 }
 
+.hiddenButton{
+    display: inline;
+    border: white;
+    color: white;
+    background-image: none;
+    outline: 0;
+    box-shadow: none;
+}
+
 input {
     margin: 5px;
     margin-bottom: 10px;
