@@ -4,19 +4,15 @@ import { withRouter } from 'react-router'
 import Moment from 'react-moment';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
-
-// import {
-//     HashRouter as Router,
-//     Link
-//   } from 'react-router-dom';
-
 class GoalieProfile extends Component {
     componentDidMount() {
         this.getGoalieInfo();
     }
 
-    componentDidUpdate() {
-        this.props.dispatch({ type: 'GET_ONE_GOALIE', payload: this.props.match.params.id })
+    componentDidUpdate(prevProps) {
+        if (this.props.goalieProfile !== prevProps.goalieProfile) {
+            this.props.dispatch({ type: 'GET_ONE_GOALIE', payload: this.props.match.params.id })
+        }
     }
 
     getGoalieInfo = () => {

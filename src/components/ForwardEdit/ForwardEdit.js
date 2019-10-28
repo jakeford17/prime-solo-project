@@ -167,15 +167,15 @@ class ForwardEdit extends Component {
                             <input label="DOB" maxlength="8" variant="filled" value={this.state.dob} onChange={(event) => this.handleChange(event, "dob")} /><br />
                             Position(s):<br />
                             <input label="Position" variant="filled" value={this.state.position} onChange={(event) => this.handleChange(event, "position")} /><br />
-                            Shoots:<br />
+                            Shoots (L or R):<br />
                             <input maxlength="1" className="shortInput" label="Shoots" variant="filled" value={this.state.shoots} onChange={(event) => this.handleChange(event, "shoots")} /><br />
                             Team:<br />
                             <input label="Team" variant="filled" value={this.state.team} onChange={(event) => this.handleChange(event, "team")} /><br />
                             League:<br />
                             <input label="League" variant="filled" value={this.state.league} onChange={(event) => this.handleChange(event, "league")} /><br />
-                            Height:<br />
+                            Height (ex: 5-11):<br />
                             <input maxlength="4" className="shortInput" label="Height" variant="filled" value={this.state.height} onChange={(event) => this.handleChange(event, "height")} /><br />
-                            Weight:<br />
+                            Weight (lbs.):<br />
                             <input maxlength="3" className="shortInput" label="Weight" variant="filled" value={this.state.weight} onChange={(event) => this.handleChange(event, "weight")} /><br />
                             Player Type:<br />
                             <input label="Player Type" variant="filled" value={this.state.player_type} onChange={(event) => this.handleChange(event, "player_type")} /><br />

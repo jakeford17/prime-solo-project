@@ -8,16 +8,18 @@ import swal from 'sweetalert';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 class Goalies extends Component {
-  // state = {
-  //   authorized: false,
-  // }
-
   componentDidMount() {
-    this.getDefense()
+    this.getGoalie()
     console.log("Admin level", this.props.user.admin)
   }
 
-  getDefense() {
+  componentDidUpdate(prevProps) {
+    if (this.props.goalie !== prevProps.goalie) {
+      this.props.dispatch({ type: 'GET_GOALIE' });
+    }
+  }
+
+  getGoalie() {
     this.props.dispatch({ type: 'GET_GOALIE' });
   }
 
@@ -119,7 +121,7 @@ class Goalies extends Component {
 }
 
 const mapStateToProps = state => ({
-  goalie: state.goalie, 
+  goalie: state.goalie,
   user: state.user
 })
 

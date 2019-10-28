@@ -12,8 +12,10 @@ class Defense extends Component {
     this.getDefense()
   }
 
-  componentDidUpdate(){
-    this.props.dispatch({ type: 'GET_DEFENSE' });
+  componentDidUpdate(prevProps) {
+    if (this.props.defense !== prevProps.defense) {
+      this.props.dispatch({ type: 'GET_DEFENSE' });
+    }
   }
 
   getDefense() {

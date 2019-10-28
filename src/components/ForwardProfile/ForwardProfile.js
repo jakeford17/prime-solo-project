@@ -14,8 +14,10 @@ class ForwardProfile extends Component {
         this.getForwardInfo();
     }
 
-    componentDidUpdate() {
-        this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id })
+    componentDidUpdate(prevProps) {
+        if (this.props.forwardProfile !== prevProps.forwardProfile) {
+            this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id })
+        }
     }
 
     getForwardInfo = () => {

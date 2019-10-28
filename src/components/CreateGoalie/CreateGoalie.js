@@ -230,12 +230,12 @@ class CreateGoalie extends Component {
                         <h2 className="positionHeader">Basic Information</h2><br />
                         <label>First Name:</label><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
-                        <label>Catches:</label><br /><input className="shortInput" maxlength="1" onChange={this.catchesChange} value={this.state.catches} /><br />
+                        <label>Catches (L or R):</label><br /><input className="shortInput" maxlength="1" onChange={this.catchesChange} value={this.state.catches} /><br />
                         <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
                         <label>DOB (MM/DD/YY):</label><br /><input maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
-                        <label>Height:</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
-                        <label>Weight:</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
+                        <label>Height (ex: 5-11):</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
+                        <label>Weight (lbs.):</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Where Does He Play?</label><br /><br />
                             <input className="radioInput" type="radio" name="where" value="Top of Crease" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Top of Crease"} /> Top of Crease
                             <input className="radioInput" type="radio" name="where" value="Mostly in Paint" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Mostly in Paint"} /> Mostly in Paint

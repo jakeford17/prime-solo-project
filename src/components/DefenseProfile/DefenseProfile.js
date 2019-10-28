@@ -9,8 +9,10 @@ class DefenseProfile extends Component {
         this.getDefenseInfo();
     }
 
-    componentDidUpdate() {
-        this.props.dispatch({ type: 'GET_ONE_DEFENSE', payload: this.props.match.params.id })
+    componentDidUpdate(prevProps) {
+        if (this.props.defenseProfile !== prevProps.defenseProfile) {
+            this.props.dispatch({ type: 'GET_ONE_DEFENSE', payload: this.props.match.params.id })
+        }
     }
 
     getDefenseInfo = () => {

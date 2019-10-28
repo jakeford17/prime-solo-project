@@ -269,13 +269,13 @@ class CreateForward extends Component {
                         <h2 className="positionHeader">Basic Information</h2><br />
                         <label>First Name:</label><button className="hiddenButton" onClick={() => this.hiddenButtonClick()}>FILL</button><br /><input className="longInput" onChange={this.fnameChange} value={this.state.fname} /><br />
                         <label>Last Name:</label><br /><input className="longInput" onChange={this.lnameChange} value={this.state.lname} /><br />
-                        <label>Position:</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
-                        <label>Shoots:</label><br /><input className="shortInput" maxlength="1" onChange={this.shotChange} value={this.state.shoots} /><br />
+                        <label>Position(s):</label><br /><input onChange={this.positionChange} value={this.state.position} /><br />
+                        <label>Shoots (L or R):</label><br /><input className="shortInput" maxlength="1" onChange={this.shotChange} value={this.state.shoots} /><br />
                         <label>Team:</label><br /><input className="longInput" onChange={this.teamChange} value={this.state.team} /><br />
                         <label>League:</label><br /><input className="longInput" onChange={this.leagueChange} value={this.state.league} /><br />
                         <label>DOB (MM/DD/YY):</label><br /><input maxlength="8" onChange={this.dobChange} value={this.state.dob} /><br />
-                        <label>Height:</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
-                        <label>Weight:</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
+                        <label>Height (ex: 5-11):</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
+                        <label>Weight (lbs.):</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Player Type:</label><br />
                         <input className="radioInput" type="radio" name="type" value="Skilled Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled Forward"} /> Skilled Forward
                             <input className="radioInput" type="radio" name="type" value="Power Forward" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Power Forward"} /> Power Forward

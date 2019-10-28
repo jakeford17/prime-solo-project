@@ -154,15 +154,15 @@ class GoalieEdit extends Component {
                             <input className="longInput" label="Last Name" variant="filled" value={this.state.lname} onChange={(event) => this.handleChange(event, "lname")} /><br />
                             DOB (MM/DD/YY):<br />
                             <input label="DOB" maxlength="8" variant="filled" value={this.state.dob} onChange={(event) => this.handleChange(event, "dob")} /><br />
-                            Catches:<br />
+                            Catches (L or R):<br />
                             <input maxlength="1" className="shortInput" label="Catches" variant="filled" value={this.state.catches} onChange={(event) => this.handleChange(event, "catches")} /><br />
                             Team:<br />
                             <input label="Team" variant="filled" value={this.state.team} onChange={(event) => this.handleChange(event, "team")} /><br />
                             League:<br />
                             <input label="League" variant="filled" value={this.state.league} onChange={(event) => this.handleChange(event, "league")} /><br />
-                            Height:<br />
+                            Height (ex: 5-11):<br />
                             <input maxlength="4" className="shortInput" label="Height" variant="filled" value={this.state.height} onChange={(event) => this.handleChange(event, "height")} /><br />
-                            Weight:<br />
+                            Weight (lbs):<br />
                             <input maxlength="3" className="shortInput" label="Weight" variant="filled" value={this.state.weight} onChange={(event) => this.handleChange(event, "weight")} /><br />
                             Where He Plays:<br />
                             <input label="Player Type" variant="filled" value={this.state.where} onChange={(event) => this.handleChange(event, "where")} /><br />

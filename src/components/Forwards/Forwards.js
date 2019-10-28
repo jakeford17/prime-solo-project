@@ -43,8 +43,10 @@ class Forwards extends Component {
     this.getForwards()
   }
 
-  componentDidUpdate(){
-    this.props.dispatch({ type: 'GET_FORWARDS' });
+  componentDidUpdate(prevProps) {
+    if (this.props.forwards !== prevProps.forwards) {
+      this.props.dispatch({ type: 'GET_FORWARDS' });
+    }
   }
 
   getForwards() {
@@ -129,7 +131,7 @@ class Forwards extends Component {
     })
     return (
       <>
-      {/*<ScrollToTopOnMount/>
+        {/*<ScrollToTopOnMount/>
        <h1 className="positionHeader">FORWARDS</h1>
       <Table celled selectable color={colors} key={colors} inverted>
           <Table.Header>
