@@ -237,15 +237,15 @@ class CreateGoalie extends Component {
                         <label>Height (ex: 5-11):</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight (lbs.):</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Where Does He Play?</label><br /><br />
-                            <input className="radioInput" type="radio" name="where" value="Top of Crease" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Top of Crease"} /> Top of Crease
+                        <input className="radioInput" type="radio" name="where" value="Top of Crease" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Top of Crease"} /> Top of Crease
                             <input className="radioInput" type="radio" name="where" value="Mostly in Paint" onChange={(event) => this.whereChange(event)} checked={this.state.where === "Mostly in Paint"} /> Mostly in Paint
                         <br /><br />
                         <label>What Style Does He Play?</label><br /><br />
-                            <input className="radioInput" type="radio" name="style" value="Quick Reaction" onChange={(event) => this.styleChange(event)} checked={this.state.style === "Quick Reaction"} /> Quick Reaction
+                        <input className="radioInput" type="radio" name="style" value="Quick Reaction" onChange={(event) => this.styleChange(event)} checked={this.state.style === "Quick Reaction"} /> Quick Reaction
                             <input className="radioInput" type="radio" name="style" value="Positional Angle" onChange={(event) => this.styleChange(event)} checked={this.state.style === "Positional Angle"} /> Positional Angle
                         <br /><br />
                         <label>Crease Personality:</label><br /><br />
-                            <input className="radioInput" type="radio" name="personality" value="Aggressive/Intense" onChange={(event) => this.personalityChange(event)} checked={this.state.personality === "Aggressive/Intense"} /> Aggressive/Intense
+                        <input className="radioInput" type="radio" name="personality" value="Aggressive/Intense" onChange={(event) => this.personalityChange(event)} checked={this.state.personality === "Aggressive/Intense"} /> Aggressive/Intense
                             <input className="radioInput" type="radio" name="personality" value="Calm/Laid Back" onChange={(event) => this.personalityChange(event)} checked={this.state.personality === "Calm/Laid Back"} /> Calm/Laid Back
                         <br /><br />
                         <label>Expected Round:</label><br /><br />

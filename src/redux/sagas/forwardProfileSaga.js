@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "POST_NEW_FORWARD" actions
+// worker Saga: will be fired on "GET_ONE_FORWARD" actions
 function* getForwardProfile(action) {
     try {
         const response = yield axios.get('/api/forwards/forwardprofile/' + action.payload);

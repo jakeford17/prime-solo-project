@@ -6,7 +6,7 @@ function* getForwards(action) {
     try {
         const response = yield axios.get('/api/forwards');
         yield put({ type: 'FETCH_FORWARDS', payload: response.data });
-    } catch(error) {
+    } catch (error) {
         console.log('error while getting elemnts', error);
     }
 }

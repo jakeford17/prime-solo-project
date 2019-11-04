@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "GET_FORWARDS" actions
+// worker Saga: will be fired on "GET_DEFENSE" actions
 function* getDefense(action) {
     try {
         const response = yield axios.get('/api/defense');
         yield put({ type: 'FETCH_DEFENSE', payload: response.data });
-    } catch(error) {
+    } catch (error) {
         console.log('error while getting elemnts', error);
     }
 }

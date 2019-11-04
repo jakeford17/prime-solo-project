@@ -1,115 +1,21 @@
-# Prime Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+# Hockey Prospect DB
+Hockey Prospect DB is an internal website used by an NHL franchise's scouting department to create and organize scouting reports in anticipation of the following year's NHL Entry Draft. The admin assigns usernames and passwords to the scouts and each scout has the ability to create, edit, and delete player profiles. Profiles are broken down by position and are viewable by anyone with access to the site. At the end of each season, the admin can log in and delete all players by position in order to start the scouting process for the following year.
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+## Usage
+-Once logged in, the user can view a list of scouted players by position or choose to create a player.
+-On each Position page, the user can view a list of scouted players at that position. From there, the user can click on the player's Profile page and on the Profile page, there is a link that directs them to the Edit page. On the Edit page, any of the player's information can be edited. The player can also be deleted. The Edit page also has a navigation bar that allows navigation throughout the page.
+-The Create pages allow scouts to add a player based on position. These pages have tabs that allow scouts to evaluate different categories throughout the game and go back as necessary until they submit the form after the game. Each category tab has information on what to look for in that category.
 
-## Download (Don't Clone) This Repository
+## Installation
+-`npm install`
+-In separate Terminal tabs `npm run client` and `npm run server`
+-The register functionality is commented out on the Log In page, but can be re-activated to make new users (users can also be added straight to the database); an admin level of 1 gives the user admin access and an admin level of 2 gives the user normal access
 
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
+# Technologies Used
+Hockey DB used the following technologies: React, React-Redux, Redux-Sagas, Node.js, Express.js, Passport, Sweet Alerts, React Tabs and Icons, PostgreSQL, and CSS for styling.
 
-## Prerequisites
+## Version 2.0
+The next version of the site will have a search bar and sortable position tables. Another feature I'd like to add is a comment section in each player profile. Before beginning to add these features, I would like to decrease the file size of the Create and Edit pages by further componentizing them.
 
-Before you get started, make sure you have the following software installed on your computer:
-
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
-
-## Create database and table
-
-Create a new database called `prime_app` and create a `user` table:
-
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
-
-## Development Setup Instructions
-
-* Run `npm install`
-* Create a `.env` file at the root of the project and paste this line into the file:
-    ```
-    SERVER_SESSION_SECRET=superDuperSecret
-    ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run server`
-* Run `npm run client`
-* Navigate to `localhost:3000`
-
-## Debugging
-
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
-
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
-
-
-## Testing Routes with Postman
-
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum. 
-
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
-
-1. Start the server - `npm run server`
-2. [Import the sample routes JSON file](./PostmanPrimeSoloRoutes.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-    1. `POST /api/user/register` registers a new user, see body to change username/password
-    2. `POST /api/user/login` will login a user, see body to change username/password
-    3. `GET /api/user` will get user information, by default it's not very much
-
-After running the login route above, you can try any other route you've created that requires a logged in user!
-
-
-## Production Build
-
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
-
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm start`
-* Navigate to `localhost:5000`
-
-## Lay of the Land
-
-* `src/` contains the React application
-* `public/` contains static assets for the client-side
-* `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-* `server/` contains the Express App
-
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
-
-* src/components
-  * App/App
-  * Footer/Footer
-  * Nav/Nav
-  * AboutPage/AboutPage
-  * InfoPage/InfoPage
-  * UserPage/UserPage
-  * LoginPage/LoginPage
-  * RegisterPage/RegisterPage
-  * LogOutButton/LogOutButton
-  * ProtectedRoute/ProtectedRoute
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Heroku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
-
-## Update Documentation
-
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+## Acknowledgement
+Thanks to Prime Digital Academy in Minneapolis, which equipped me and helped me to make this application a reality. I'd specifically like to thank my instructors Casie Siekman and Dev Jana and the Porta cohort. Additionally, I appreciate the support from my wife Tricia and my daughter, Vivian.

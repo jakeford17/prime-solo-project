@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import swal from 'sweetalert';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
-
 class DefenseEdit extends Component {
     state = {
         fname: '',

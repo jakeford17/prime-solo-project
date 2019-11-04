@@ -4,11 +4,6 @@ import { withRouter } from 'react-router'
 import Moment from 'react-moment';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
-// import {
-//     HashRouter as Router,
-//     Link
-//   } from 'react-router-dom';
-
 class ForwardProfile extends Component {
     componentDidMount() {
         this.getForwardInfo();
@@ -29,6 +24,10 @@ class ForwardProfile extends Component {
         this.props.history.push(`/forwardedit/${this.props.match.params.id}`);
     }
 
+    hiddenButtonClick = (event) => {
+        this.props.dispatch({ type: 'GET_ONE_FORWARD', payload: this.props.match.params.id });
+    }
+
     render() {
         return (
             <div>
@@ -41,7 +40,7 @@ class ForwardProfile extends Component {
                                 <tbody>
                                     <tr>
                                         <td className="profiletd">
-                                            <strong>Team:</strong>
+                                            <strong>Team:<button className="hiddenButton" onClick={() => this.hiddenButtonClick()}>UPDATE</button></strong>
                                         </td>
                                         <td>
                                             {oneForward.team}

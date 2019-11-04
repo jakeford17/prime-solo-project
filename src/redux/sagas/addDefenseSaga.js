@@ -8,14 +8,6 @@ function* addDefense(action) {
     } catch (error) {
         console.log('error posting new defenseman', error);
     }
-    // const config = {
-    //     headers: { 'Content-Type': 'application/json' },
-    //     withCredentials: true,
-    // };
-    // the config includes credentials which
-    // allow the server session to recognize the user
-    // If a user is logged in, this will return their information
-    // from the server session (req.user)
 }
 
 function* addDefenseSaga() {

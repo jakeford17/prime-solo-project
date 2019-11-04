@@ -45,7 +45,7 @@ class LoginPage extends Component {
           <h1 className="positionHeader">Login</h1>
           <div>
             <label htmlFor="username">
-              Username:<br/>
+              Username:<br />
               <input
                 type="text"
                 name="username"
@@ -56,7 +56,7 @@ class LoginPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:<br/>
+              Password:<br />
               <input
                 type="password"
                 name="password"
@@ -74,6 +74,7 @@ class LoginPage extends Component {
             />
           </div>
         </form>
+        {/* Register commented out--new users cannot register */}
         {/* <center>
           <button
             type="button"

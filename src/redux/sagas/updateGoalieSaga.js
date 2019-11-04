@@ -2,8 +2,7 @@ import axios from 'axios';
 import { takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "UPDATE_GOALIE" actions
-
-function* updateGoalie (action) {
+function* updateGoalie(action) {
     try {
         yield axios.put('/api/goalie', action.payload);
     } catch (error) {

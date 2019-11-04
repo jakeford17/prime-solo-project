@@ -2,8 +2,7 @@ import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "DELETE_FORWARD" actions
-
-function* deleteForward (action) {
+function* deleteForward(action) {
     try {
         yield axios.delete(`/api/forwards/${action.payload}`);
         yield put({ type: 'GET_FORWARDS', payload: action.payload })

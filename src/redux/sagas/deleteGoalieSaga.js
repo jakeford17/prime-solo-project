@@ -2,8 +2,7 @@ import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "DELETE_GOALIE" actions
-
-function* deleteGoalie (action) {
+function* deleteGoalie(action) {
     try {
         yield axios.delete(`/api/goalie/${action.payload}`);
         yield put({ type: 'GET_GOALIE', payload: action.payload })

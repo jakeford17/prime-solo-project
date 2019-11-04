@@ -146,39 +146,8 @@ input {
     text-decoration: none;
 }
 
-/* .nav-title{
-    font-family: 'Permanent Marker', cursive;
-    padding-top: 20px;
-} */
-
 .positionHeader{
     font-family: 'Permanent Marker', cursive;
-    /* padding-top: 10px; */
-}
-
-.profileButton{
-        border-radius: 25%;
-        display: block;
-        font-size: 1.1em;
-        margin: auto;
-        background-color: white;
-        color: black;
-}
-
-.profileButton:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-}
-
-.positionTableHeader{
-    background-color: lightgrey;
-    text-align: left;
-    border-bottom: 1px solid black;
-}
-
-.profiletd{
-    min-width: 175px;
 }
 
 .positionRightTD{
@@ -186,14 +155,14 @@ input {
     padding-right: 30px;
 }
 
-.positionTableProfileHead{
-    text-align: center;
-}
-
 .positionTable{
     border-collapse: collapse;
     margin: auto;
     border: 1px solid black;
+}
+
+.positionTableProfileHead{
+    text-align: center;
 }
 
 .positiontd{
@@ -209,6 +178,32 @@ input {
 .positiontr:hover{
     background-color: lightgray;
 }
+
+.positionTableHeader{
+    background-color: lightgrey;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+.profileButton{
+    border-radius: 25%;
+    display: block;
+    font-size: 1.1em;
+    margin: auto;
+    background-color: white;
+    color: black;
+}
+
+.profileButton:hover {
+cursor: pointer;
+background-color: black;
+color: white;
+}
+
+.profiletd{
+    min-width: 175px;
+}
+
 
 .radioInput{
     display: inline;

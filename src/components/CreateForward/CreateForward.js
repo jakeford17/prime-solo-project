@@ -209,7 +209,7 @@ class CreateForward extends Component {
             puckSkills: '9',
             puckSkillsComments: 'Crafty with the puck...hard and accurate shot',
             competitiveness: '8',
-            compComments: 'Good attituide and consistent level of play no matter the situation...generally, could be more consistent on the forecheck',
+            compComments: 'Good attitude and consistent level of play no matter the situation...generally, could be more consistent on the forecheck',
             physical: '10',
             physicalComments: 'Uses his big, heavy frame well when check and protecting puck',
             hockeyIQ: '9',

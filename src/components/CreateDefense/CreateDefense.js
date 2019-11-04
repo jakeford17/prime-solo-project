@@ -238,7 +238,7 @@ class CreateDefense extends Component {
                         <label>Height (ex: 5-11):</label><br /><input className="shortInput" maxlength="4" onChange={this.heightChange} value={this.state.height} /><br />
                         <label>Weight (lbs.):</label><br /><input className="shortInput" maxlength="3" onChange={this.weightChange} value={this.state.weight} /><br />
                         <label>Player Type:</label><br />
-                            <input className="radioInput" type="radio" name="type" value="Skilled/Offensive Defenseman" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled/Offensive Defenseman"} /> Skilled/Offensive Defenseman
+                        <input className="radioInput" type="radio" name="type" value="Skilled/Offensive Defenseman" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Skilled/Offensive Defenseman"} /> Skilled/Offensive Defenseman
                             <input className="radioInput" type="radio" name="type" value="Stay-at-Home/Defensive Defenseman" onChange={(event) => this.typeChange(event)} checked={this.state.playerType === "Stay-at-Home/Defensive Defenseman"} /> Stay-at-Home/Defensive Defenseman
                         <br /><br />
                         <label>Expected Round:</label><br />
