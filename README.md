@@ -11,7 +11,7 @@ Hockey Prospect DB is an internal website used by an NHL franchise's scouting de
 -In separate Terminal tabs `npm run client` and `npm run server`
 -The register functionality is commented out on the Log In page, but can be re-activated to make new users (users can also be added straight to the database); an admin level of 1 gives the user admin access and an admin level of 2 gives the user normal access
 
-# Technologies Used
+## Technologies Used
 Hockey DB used the following technologies: React, React-Redux, Redux-Sagas, Node.js, Express.js, Passport, Sweet Alerts, React Tabs and Icons, PostgreSQL, and CSS for styling.
 
 ## Version 2.0
